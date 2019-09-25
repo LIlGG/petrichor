@@ -4,10 +4,9 @@
 		<router-view/>
 		<!-- 一些小工具(考虑封装成组件,不应该跟随界面刷新) -->
 		<!-- 全局导航栏 -->
-		<navbar :scrollY="scrollY"/>
-		<div></div>
+		<navbar/>
 		<!-- 回到顶部工具 -->
-		<div></div>
+		<back-to-top/>
 		<!-- live2d -->
 		<div></div>
 		<!-- 主题切换 -->
@@ -17,11 +16,11 @@
 <script>
 import NProgress from "nprogress";
 import { Navbar } from "layout/components";
-
+import BackToTop from "components/BackToTop";
 export default {
-  name: "App",
   components: {
-    Navbar
+    Navbar,
+    BackToTop
   },
   data() {
    return {
@@ -56,6 +55,9 @@ export default {
     clientHeight(newValue) {
       // 当前高度有变化则保存在Vuex
       this.$store.dispatch('app/setClientHeight', newValue)
+    },
+    scrollY(newValue){
+      this.$store.dispatch('app/setScrollY', newValue)
     }
   }
 };
@@ -92,7 +94,7 @@ export default {
 }
 #app {
   background-color: #f2f2f2;
-  height: 2000px;
+  height: 4300px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -132,4 +134,31 @@ export default {
         /* Firefox 16+, IE 10+, Opera */
     }
 }
+
+// 滚动条样式
+
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+	background-color: #eee
+}
+
+#mo-nav::-webkit-scrollbar {
+	width: 0;
+	opacity: 0
+}
+
+::-webkit-scrollbar-track {
+	background-color: #eee
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #69d2e7;
+  
+}
+
+::-webkit-scrollbar-thumb {
+	background: #FE9600
+}
+
 </style>

@@ -20,11 +20,6 @@ import Logo from "./Logo";
 export default {
   name: "Navbar",
   components: { Logo },
-  props: {
-    scrollY: Number,
-    required: true,
-    default: 0
-  },
   computed: {
     logoInfo() {
       return {
@@ -36,7 +31,8 @@ export default {
       };
     },
     isTop() {
-      if (this.scrollY != 0) {
+      let scrollY = this.$store.getters.scrollY;
+      if (scrollY != 0) {
         return false;
       } 
       return true;
