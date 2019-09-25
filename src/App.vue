@@ -8,19 +8,20 @@
 		<!-- 回到顶部工具 -->
 		<back-to-top/>
 		<!-- live2d -->
-		<div></div>
+		<live/>
 		<!-- 主题切换 -->
 		<div></div>
 	</div>
 </template>
 <script>
 import NProgress from "nprogress";
-import { Navbar } from "layout/components";
+import { Navbar,Live } from "layout/components";
 import BackToTop from "components/BackToTop";
 export default {
   components: {
     Navbar,
-    BackToTop
+    BackToTop,
+    Live
   },
   data() {
    return {

@@ -12,6 +12,7 @@ module.exports = {
             .set('assets', resolve('src/assets'))
             .set('components', resolve('src/components'))
             .set('layout', resolve('src/layout'))
+            .set('vendor', resolve('src/vendor'))
         config.resolve.symlinks(true)
     }
 }

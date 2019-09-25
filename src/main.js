@@ -3,7 +3,6 @@ import App from './App'
 import router from './router'
 import store from './store'
 import NProgress from 'nprogress'
-
 import '@/styles/style.less'
 
 Vue.config.productionTip = false
@@ -26,6 +25,7 @@ router.afterEach(() => {
   // 在即将进入新的页面组件前，关闭掉进度条
   NProgress.done()
 })
+
 
 NProgress.configure({
   minimum: 0.0,
