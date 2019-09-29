@@ -4,7 +4,6 @@ import router from './router'
 import store from './store'
 import NProgress from 'nprogress'
 import '@/styles/style.less'
-
 Vue.config.productionTip = false
 
 new Vue({
@@ -12,6 +11,7 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
+
 
 //当路由进入前
 router.beforeEach((to, from, next) => {
