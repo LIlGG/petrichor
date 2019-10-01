@@ -41,12 +41,3 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.live2d  {
-  position: relative;
-  z-index: 99 
-}
-    
-</style>
-
-

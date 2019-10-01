@@ -1,0 +1,323 @@
+.site-header {
+    width: 100%;
+    height: 75px;
+    background: 0 0;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    &.is-homepage {
+      .lower-cantiner {
+        display: none;
+      }
+      &.yya {
+        .site-header {
+          display: block;
+        }
+      }
+      &:hover {
+        &.is-homepage {
+          .lower-cantiner {
+            display: block;
+          }
+        }
+      }
+    }
+  
+    &:hover {
+      background-color: #fff;
+    }
+  }
+  
+  .yya {
+    position: fixed;
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 1px 40px -8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .gizle {
+    top: -100px;
+    top: 0;
+    z-index: 9999;
+  }
+  
+  .sabit {
+    top: 0;
+    z-index: 9999;
+  }
+  
+  .site-top {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    padding: 0 20px;
+    .lower-cantiner {
+      position: absolute;
+      left: 50%;
+      min-width: 758.4px;
+      pointer-events: none;
+    }
+    .lower {
+      display: inline-block;
+      margin: 15px 0 0 10px;
+      font-size: 16px;
+      position: relative;
+      left: -50%;
+      pointer-events: auto !important;
+      nav {
+        position: relative;
+        float: right;
+        display: none;
+        animation: searchbox 0.2s;
+        &.navbar {
+          display: block;
+        }
+      }
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: inline-block;
+      li {
+        float: left;
+        margin: 0 13px;
+        position: relative;
+        -webkit-transtition: all 1s ease;
+        a {
+          padding: 10px 0;
+          display: inline-block;
+          color: #666;
+          &:hover {
+            color: orange;
+            &:after {
+              max-width: 100%;
+            }
+          }
+          &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: -16px;
+            height: 6px;
+            background-color: #fe9600;
+            width: 100%;
+            max-width: 0;
+            transition: max-width 0.25s ease-in-out;
+          }
+        }
+  
+        ul {
+          li {
+            a {
+              &:hover {
+                content: "";
+                display: none;
+                position: absolute;
+                bottom: -21px;
+                height: 6px;
+                background-color: #fe9600;
+                width: 100%;
+                max-width: 0;
+                transition: max-width 0.25s ease-in-out;
+              }
+            }
+          }
+        }
+      }
+    }
+  
+    .menu-item-has-children {
+      li {
+        a {
+          font-size: 14px;
+          padding: 8px 18px;
+          text-transform: none;
+          color: #545454;
+        }
+      }
+    }
+  }
+  
+  .site-branding {
+    animation: sitetop 1s;
+    float: left;
+    position: relative;
+    height: 75px;
+    line-height: 75px;
+    margin-left: -6px;
+  }
+  
+  @media (max-width: 1200px) {
+    .site-top .lower {
+      left: 15px;
+      .lower-cantiner {
+        left: 0;
+      }
+      nav {
+        &.hide {
+          display: none !important;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 860px) {
+    .site-top {
+      .lower {
+        nav {
+          ul {
+            li {
+              .animated-hover {
+                i {
+                  display: inline;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .site-branding {
+      float: right;
+      height: 50px;
+      line-height: 43px;
+      margin-right: -6px;
+    }
+  }
+
+  .site-title {
+    margin: 0;
+    a {
+      color: #464646;
+      font-weight: 400;
+      &:hover {
+        color: orange !important;
+      }
+    }
+  
+    img {
+      height: 40px;
+      margin-top: 17px;
+      opacity: 0.75;
+      -webkit-transition: color 0.2s ease-out, border 0.2s ease-out,
+        opacity 0.2s ease-out;
+      -moz-transition: color 0.2s ease-out, border 0.2s ease-out,
+        opacity 0.2s ease-out;
+      transition: color 0.2s ease-out, border 0.2s ease-out, opacity 0.2s ease-out;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  
+    .logolink {
+      &.moe-mashiro {
+        a {
+          color: #464646;
+          float: left;
+          font-size: 25px;
+          font-weight: 800;
+          height: 56px;
+          line-height: 56px;
+          padding-left: 6px;
+          padding-right: 15px;
+          padding-top: 11px;
+          text-decoration-line: none;
+        }
+  
+        .sakuraso,
+        .no {
+          font-size: 25px;
+          border-radius: 9px;
+          padding-bottom: 2px;
+          padding-top: 5px;
+        }
+  
+        .no {
+          display: inline-block;
+          margin-left: 5px;
+        }
+      }
+  
+      a {
+        color: #464646;
+        float: left;
+        font-size: 20px;
+        font-weight: 800;
+        height: 56px;
+        line-height: 56px;
+        padding-left: 35px;
+        padding-right: 15px;
+        padding-top: 11px;
+        text-decoration-line: none;
+        &:hover {
+          .sakuraso {
+            background-color: orange;
+            color: #fff;
+          }
+  
+          .shironeko,
+          rt {
+            color: orange;
+          }
+  
+          .no {
+            -webkit-animation: spin 1.5s linear infinite;
+            animation: spin 1.5s linear infinite;
+          }
+  
+          ruby {
+            rt {
+              opacity: 1;
+            }
+          }
+        }
+      }
+  
+      .sakuraso {
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 5px;
+        color: #464646;
+        height: auto;
+        line-height: 25px;
+        margin-right: 0;
+        padding-bottom: 0;
+        padding-top: 1px;
+        text-size-adjust: 100%;
+        width: auto;
+      }
+  
+      ruby {
+        ruby-position: under;
+        -webkit-ruby-position: after;
+        rt {
+          font-size: 10px;
+          transform: translateY(-15px);
+          opacity: 0;
+          transition-property: opacity;
+          transition-duration: 0.5s, 0.5s;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 860px) {
+    .site-title {
+      font-size: 20px;
+      margin-right: 10px;
+      img {
+        height: 40px;
+        line-height: 40px;
+        margin: 0;
+        vertical-align: middle;
+      }
+    }
+  }
+  
+  .moe-mashiro {
+    font-family: "Moe-Mashiro", "Merriweather Sans", Helvetica, Tahoma, Arial,
+      "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "WenQuanYi Micro Hei",
+      sans-serif;
+  }

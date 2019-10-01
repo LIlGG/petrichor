@@ -11,8 +11,8 @@
     <live/>
     <!-- 主题切换 -->
     <div></div>
-    <!-- 音乐播放软件 -->
-    <a-player :options="aplayerOptions"/>
+    <!-- 背景音乐播放软件 -->
+    <a-player id="aplayer-float" :options="aplayerOptions"/>
   </div>
 </template>
 <script>
@@ -22,7 +22,7 @@ import Live from "components/Live";
 import BackToTop from "components/BackToTop";
 import APlayer from "components/APlayer";
 
-import { music } from '@/api/music'
+import { music } from "@/api/music";
 export default {
   components: {
     Navbar,
@@ -35,9 +35,10 @@ export default {
       scrollY: 0,
       clientHeight: 0,
       aplayerOptions: {
-        lrcType:3,
+        lrcType: 3,
         fixed: true,
-        listFolded: false
+        listFolded: false,
+        order: "random"
       },
       musicQuery: {
         server: "netease",
@@ -58,8 +59,8 @@ export default {
 
     // 假设获取歌单
     music(this.musicQuery).then(response => {
-      this.$set(this.aplayerOptions,"audio", response)
-    })
+      this.$set(this.aplayerOptions, "audio", response);
+    });
   },
   methods: {
     handleScroll() {
@@ -85,101 +86,3 @@ export default {
   }
 };
 </script>
-
-<style lang="less">
-#nprogress {
-  pointer-events: none;
-  z-index: 99999;
-  position: absolute;
-}
-
-#nprogress .bar {
-  background: orange;
-  position: fixed;
-  z-index: 1031;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-}
-
-#nprogress .peg {
-  display: block;
-  position: absolute;
-  right: 0;
-  width: 100px;
-  height: 100%;
-  box-shadow: 0 0 10px orange, 0 0 5px orange;
-  opacity: 1;
-  -webkit-transform: rotate(3deg) translate(0px, -4px);
-  -ms-transform: rotate(3deg) translate(0px, -4px);
-  transform: rotate(3deg) translate(0px, -4px);
-}
-#app {
-  background-color: #f2f2f2;
-  height: 4300px;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    /* Chrome, Opera 15+, Safari 3.1+ */
-    -ms-transform: rotate(0deg);
-    /* IE 9 */
-    transform: rotate(0deg);
-    /* Firefox 16+, IE 10+, Opera */
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    /* Chrome, Opera 15+, Safari 3.1+ */
-    -ms-transform: rotate(360deg);
-    /* IE 9 */
-    transform: rotate(360deg);
-    /* Firefox 16+, IE 10+, Opera */
-  }
-}
-@keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    /* Chrome, Opera 15+, Safari 3.1+ */
-    -ms-transform: rotate(0deg);
-    /* IE 9 */
-    transform: rotate(0deg);
-    /* Firefox 16+, IE 10+, Opera */
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    /* Chrome, Opera 15+, Safari 3.1+ */
-    -ms-transform: rotate(360deg);
-    /* IE 9 */
-    transform: rotate(360deg);
-    /* Firefox 16+, IE 10+, Opera */
-  }
-}
-
-// 滚动条样式
-
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-  background-color: #eee;
-}
-
-#mo-nav::-webkit-scrollbar {
-  width: 0;
-  opacity: 0;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #eee;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #69d2e7;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #fe9600;
-}
-</style>

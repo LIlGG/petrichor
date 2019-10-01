@@ -144,25 +144,3 @@ export default {
   }
 };
 </script>
-
-<style lang="less" scoped>
-.live {
-  position: relative;
-}
-
-.tools-panel {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  max-width: 32px;
-  z-index: 99;
-  margin-left: -5px;
-}
-.live2d-panel {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 99;
-  font-size: 0;
-}
-</style>

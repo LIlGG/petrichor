@@ -70,22 +70,3 @@ export default {
   }
 };
 </script>
-
-
-<style scoped>
-.live2d-tools{
-  writing-mode: vertical-lr;
-  cursor: pointer;
-  text-align: center;
-  min-height: 35px;
-  line-height: 58px;
-  padding: 3px 2px;
-  height: auto;
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
-  background-color: #FFFFFF;
-  transition: all 0.2s;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
- 
-</style>

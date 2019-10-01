@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import "aplayer/dist/APlayer.min.css";
 import APlayer from "aplayer";
 export default {
   name:"APlayer",
@@ -23,7 +22,3 @@ export default {
   }
 };
 </script>
-
-<style lang="less" scoped>
-</style>
-

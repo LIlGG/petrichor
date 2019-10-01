@@ -11,6 +11,17 @@ const service = axios.create({
 // request拦截器
 service.interceptors.request.use(config => {
     // 在进行请求前统一处理，比如添加token等
+    if(config.method === 'POST') {
+        config.data = {
+            ...config.data,
+            _t: Date.parse(new Date()) / 1000
+        }
+    } else if (config.method === 'get') {
+        config.params = {
+            ...config.params,
+            _t: Date.parse(new Date()) / 1000
+        }
+    }
     return config
 }, error => {
     //  统一处理请求错误

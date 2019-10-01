@@ -1,0 +1,57 @@
+.live {
+    position: relative;
+  }
+  
+  .tools-panel {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    max-width: 32px;
+    z-index: 99;
+    margin-left: -5px;
+    bottom: 66px;
+    font-family: 'Ubuntu'
+  }
+  .live2d-panel {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 99;
+    font-size: 0;
+}
+
+.live2d  {
+    position: relative;
+    z-index: 99 
+  }
+  .live2d-tools{
+    writing-mode: vertical-lr;
+    cursor: pointer;
+    text-align: center;
+    min-height: 35px;
+    line-height: 58px;
+    padding: 3px 2px;
+    height: auto;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #FFFFFF;
+    transition: all 0.2s;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .dialogue-live2d {
+    opacity: 0;
+    width: 250px;
+    height: auto;
+    min-height: 60px;
+    margin: 0 0 -25px 20px;
+    padding: 5px 10px;
+    border-radius: 12px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+    font-size: 13px;
+    color: #212121;
+    text-overflow: ellipsis;
+    background-color: #ffffff;
+    overflow: hidden;
+    animation: common-animation 50s ease-in-out 5s infinite;
+  }
