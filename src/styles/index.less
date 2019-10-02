@@ -1,10 +1,8 @@
-/** 导入css */
+@import './font/font.less';
 @import './animations.less';
-@import 'https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css';
-@import 'https://cdn.jsdelivr.net/gh/moezx/cdn@3.6.9/css/lib.min.css';
-@import 'https://cdn.lixingyong.com/fonts/Moe-Mashiro/stylesheet.css';
-@import './live2d.less';
-@import './layout.less';
+@import './cdn/index.less';
+@import './components/index.less';
+@import './layout/index.less';
 
 #nprogress {
     pointer-events: none;
@@ -100,4 +98,13 @@
   
   ::-webkit-scrollbar-thumb {
     background: #fe9600;
+  }
+
+  .no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
   }

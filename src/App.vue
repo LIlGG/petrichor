@@ -38,7 +38,8 @@ export default {
         lrcType: 3,
         fixed: true,
         listFolded: false,
-        order: "random"
+        order: "random",
+        autoplay: false
       },
       musicQuery: {
         server: "netease",
