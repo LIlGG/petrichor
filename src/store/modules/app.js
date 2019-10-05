@@ -2,7 +2,8 @@ import Cookies from 'js-cookie'
 
 const state = {
     clientHeight: 0,
-    scrollY: 0
+    scrollY: 0,
+    bgVideoPlay: false
 }
 
 const mutations = {
@@ -14,6 +15,10 @@ const mutations = {
     SET_SCROLL_Y: (state, scrollY) => {
         state.scrollY = scrollY;
         Cookies.set('scrollY', scrollY)
+    },
+
+    SET_BG_VIDEO_PLAY: (state, bgVideoPlay) => {
+        state.bgVideoPlay = bgVideoPlay;
     }
 }
 
@@ -24,6 +29,10 @@ const actions = {
 
     setScrollY({commit}, scrollY){
         commit('SET_SCROLL_Y', scrollY)
+    },
+
+    setBgVideoPlay({ commit }, bgVideoPlay) {
+        commit('SET_BG_VIDEO_PLAY', bgVideoPlay)
     }
 }
 

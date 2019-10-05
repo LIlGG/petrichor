@@ -39,15 +39,7 @@
     }
 }
 
-@media (max-width:860px) {
-	.headertop{
-        &.filter-dot {
-            &:before {
-                background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/grid.png)
-            }
-        }
-    }
-}
+
 
 
 #banner_wave_1 {
@@ -80,8 +72,40 @@
 	transition-duration: .4s,.4s
 }
 
+
+
+.headertop-down {
+	position: absolute;
+	bottom: 50px;
+	left: 50%;
+	cursor: pointer;
+    z-index: 5;
+    i {
+        font-size: 28px;
+        color: #fff;
+        -ms-transform: scale(1.5,1);
+        -webkit-transform: scale(1.5,1);
+        transform: scale(1.5,1)
+    }
+}
+
+.banner_wave_hide,.banner_wave_hide_fit_skin {
+	opacity: 0 !important;
+	bottom: -999px !important
+}
+
 @media (max-width:860px) {
+    .headertop{
+        &.filter-dot {
+            &:before {
+                background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/grid.png)
+            }
+        }
+    }
 	#banner_wave_1,#banner_wave_2 {
+		display: none
+    }
+    .headertop-down {
 		display: none
 	}
 }

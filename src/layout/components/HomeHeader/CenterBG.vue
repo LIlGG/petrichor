@@ -1,27 +1,27 @@
 <template>
-    <figure>
-        <div class="focusinfo no-select">
-            <glitch class="center-text" :glitchText="glitchText" :isglitch="isglitch"/>
-            <div class="header-info">
-                <p>
-                    <i class="fa fa-quote-left"></i>
-                    {{headerInfo}}
-                    <i class="fa fa-quote-right"></i>
-                </p>
-                <div class="top-social_v2">
-                    <li id="bg-pre">
-                        <img class="flipx" :src="nextImg">
-                    </li>
-                    <li v-for="(social, index) in socials" :key="index">
-                        <LikeIcon :likeData="social" @clickEvent="likeClickEvent"/>
-                    </li>
-                    <li id="bg-next">
-                        <img :src="nextImg">
-                    </li>
-                </div>
-            </div>
+  <figure>
+    <div class="focusinfo no-select" :style="isHide">
+      <glitch class="center-text" :glitchText="glitchText" :isglitch="isglitch"/>
+      <div class="header-info">
+        <p>
+          <i class="fa fa-quote-left"></i>
+          {{headerInfo}}
+          <i class="fa fa-quote-right"></i>
+        </p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" :src="nextImg">
+          </li>
+          <li v-for="(social, index) in socials" :key="index">
+            <LikeIcon :likeData="social" @clickEvent="likeClickEvent"/>
+          </li>
+          <li id="bg-next">
+            <img :src="nextImg">
+          </li>
         </div>
-    </figure>
+      </div>
+    </div>
+  </figure>
 </template>
 
 <script>
@@ -32,6 +32,15 @@ export default {
   components: {
     Glitch,
     LikeIcon
+  },
+  computed: {
+    isHide() {
+      let bgVideoPlay = this.$store.getters.bgVideoPlay;
+      if(bgVideoPlay) {
+        return 'top: -999px';
+      }
+      return '';
+    }
   },
   data() {
     return {
