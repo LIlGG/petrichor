@@ -87,9 +87,9 @@ export default {
         case "E-mail":
           let mail =
             "mailto:" +
-            this.$store.getters.email_domain +
+            this.$store.getters.emailDomain +
             "@" +
-            this.$store.getters.email_email_name;
+            this.$store.getters.emailName;
           window.open(mail);
           break;
       }

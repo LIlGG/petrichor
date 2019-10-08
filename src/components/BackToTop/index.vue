@@ -2,20 +2,21 @@
   封装的回到顶部小工具
 -->
 <template>
-    <a
-        href="#"
-        class="cd-top animated cd-is-visible"
-        :class="{'cd-is-visible': visible}"
-        :style="topStyle"
-    ></a>
+  <a
+    href="#"
+    class="cd-top faa-float animated"
+    :class="{'cd-is-visible': visible, 'cd-fade-out': visible}"
+    :style="topStyle"
+    @click="backToTopClick()"
+  ></a>
 </template>
 
 <script>
 export default {
   data() {
-      return {
-        visible: false
-      }
+    return {
+      visible: false
+    };
   },
   computed: {
     topStyle() {
@@ -24,11 +25,19 @@ export default {
       let top = 900;
       if (scrollY / clientHeight > 0.05) {
         top = 950 - clientHeight;
-        this.visible = true
+        this.visible = true;
       } else {
-        this.visible = false
+        this.visible = false;
       }
       return "top: -" + top + "px";
+    }
+  },
+  methods: {
+    backToTopClick() {
+      event.preventDefault();
+      $("body,html").animate({ 
+        scrollTop: 0 
+        }, this.$store.getters.scrollTopDuration);
     }
   }
 };

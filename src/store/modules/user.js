@@ -1,7 +1,7 @@
 const state = {
     name: '',
-    email_domain: '',
-    email_name: '',
+    emailDomain: '',
+    emailName: '',
     avatar: ''
 }
 
@@ -9,11 +9,11 @@ const mutations = {
     SET_NAME: (state, name) => {
         state.name = name;
     },
-    SET_EMAIL_DOMAIN: (state, email_domain) => {
-        state.email_domain = email_domain;
+    SET_EMAILDOMAIN: (state, emailDomain) => {
+        state.emailDomain = emailDomain;
     },
-    SET_EMAIL_NAME: (state, email_name) => {
-        state.email_name = email_name;
+    SET_EMAIL_NAME: (state, emailName) => {
+        state.emailName = emailName;
     },
     SET_AVATAR: (state, avatar) => {
         state.avatar = avatar;

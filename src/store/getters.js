@@ -4,9 +4,9 @@ const getters = {
     bgVideoPlay: state => state.app.bgVideoPlay,
     name: state => state.user.name,
     avatar: state => state.user.avatar,
-    email_domain: state => state.user.email_domain,
-    email_email_name: state => state.user.email_name,
-    
+    emailDomain: state => state.user.emailDomain,
+    emailName: state => state.user.emailName,
+    scrollTopDuration: state =>  state.setting.scrollTopDuration,
 }
 
 export default getters;
