@@ -3,7 +3,8 @@ import Cookies from 'js-cookie'
 const state = {
     clientHeight: 0,
     scrollY: 0,
-    bgVideoPlay: false
+    bgVideoPlay: false,
+    search: false
 }
 
 const mutations = {
@@ -19,6 +20,10 @@ const mutations = {
 
     SET_BG_VIDEO_PLAY: (state, bgVideoPlay) => {
         state.bgVideoPlay = bgVideoPlay;
+    },
+
+    SET_SEARCH: (state, search) => {
+        state.search = search
     }
 }
 
@@ -33,6 +38,10 @@ const actions = {
 
     setBgVideoPlay({ commit }, bgVideoPlay) {
         commit('SET_BG_VIDEO_PLAY', bgVideoPlay)
+    },
+
+    setSearch({ commit }, search) {
+        commit('SET_SEARCH', search)
     }
 }
 

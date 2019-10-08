@@ -15,8 +15,8 @@
       <div class="header-user-avatar">
         <login></login>
       </div>
-      <div class="searchbox">
-        <search></search>
+      <div class="searchbox" @click="search()">
+        <icon :iconClass="iconClass"/>
       </div>
     </div>
   </header>
@@ -24,9 +24,18 @@
 
 <script>
 import Logo from "./Logo";
+import Icon from "components/Icon"
 export default {
   name: "Navbar",
-  components: { Logo },
+  components: { 
+    Logo,
+    Icon
+  },
+  data() {
+    return {
+      iconClass: ['js-toggle-search', 'iconsearch', 'icon-search'],
+    }
+  },
   computed: {
     logoInfo() {
       return {
@@ -44,6 +53,33 @@ export default {
       }
       return true;
     }
+  },
+  methods: {
+    search() {
+      this.$store.dispatch('app/setSearch', true);
+    }
   }
 };
 </script>
+<style lang="less">
+
+.searchbox,.site-top .lower,.header-user-avatar {
+	animation: searchbox 1s
+}
+
+.searchbox {
+	float: right;
+	height: 75px;
+	line-height: 75px;
+	margin-left: 20px
+}
+
+
+i.iconfont.js-toggle-search.iconsearch {
+	color: #666;
+	cursor: pointer;
+	font-size: 26px;
+	-webkit-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out
+}
+</style>

@@ -13,11 +13,13 @@
     <div></div>
     <!-- 背景音乐播放软件 -->
     <a-player id="aplayer-float" :options="aplayerOptions"/>
+    <!-- 搜索页面（默认隐藏） -->
+    <search-modal :class="{'is-visible': isSearch}"/>
   </div>
 </template>
 <script>
 import NProgress from "nprogress";
-import { Navbar } from "layout/components";
+import { Navbar, SearchModal } from "layout/components";
 import Live from "components/Live";
 import BackToTop from "components/BackToTop";
 import APlayer from "components/APlayer";
@@ -26,6 +28,7 @@ import { music } from "@/api/music";
 export default {
   components: {
     Navbar,
+    SearchModal,
     BackToTop,
     Live,
     APlayer
@@ -47,6 +50,11 @@ export default {
         id: 2345868969
       }
     };
+  },
+  computed: {
+    isSearch() {
+      return this.$store.getters.search;
+    }
   },
   mounted() {
     // 获取全局页面滚动高度
