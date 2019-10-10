@@ -39,9 +39,6 @@
     }
 }
 
-
-
-
 #banner_wave_1 {
 	width: auto;
 	height: 65px;
@@ -54,9 +51,12 @@
 	z-index: 5;
 	opacity: 1;
 	transition-property: opacity,bottom;
-	transition-duration: .4s,.4s
+    transition-duration: .4s,.4s;
+    animation: myfirst 25000ms linear infinite normal;
+    -moz-animation: banner-wave-1 25000ms linear infinite normal;
+    -webkit-animation: banner-wave-1 25000ms linear infinite normal;
+    -o-animation: banner-wave-1 25000ms linear infinite normal;
 }
-
 #banner_wave_2 {
 	width: auto;
 	height: 80px;
@@ -69,7 +69,11 @@
 	z-index: 4;
 	opacity: 1;
 	transition-property: opacity,bottom;
-	transition-duration: .4s,.4s
+    transition-duration: .4s,.4s;
+    animation: banner-wave-2 60000ms linear infinite normal;
+    -moz-animation: banner-wave-2 60000ms linear infinite normal;
+    -webkit-animation: banner-wave-2 60000ms linear infinite normal;
+    -o-animation: banner-wave-2 60000ms linear infinite normal;
 }
 
 

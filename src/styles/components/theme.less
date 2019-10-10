@@ -1,0 +1,81 @@
+.changeSkin {
+	position: fixed;
+	bottom: 0;
+	right: -600px;
+	width: auto;
+	height: auto;
+	z-index: 99;
+	font-family: 'Ubuntu';
+	padding: 10px 20px;
+	transition-property: right;
+    transition-duration: .3s,.3s;
+    .keys {
+        position: relative;
+        z-index: 99;
+        span {
+            cursor: pointer;
+        }
+    }
+    .close-skinMenu {
+        position: relative;
+        z-index: 99;
+        cursor: pointer
+    }
+}
+
+
+.changeSkin-gear {
+	position: fixed;
+	bottom: -999px;
+	right: 5px;
+	width: auto;
+	height: auto;
+	z-index: 99;
+	visibility: hidden;
+	white-space: nowrap;
+	padding: 10px;
+	cursor: pointer;
+    border-radius: 10px 10px 0 0;
+    span {
+        &::before {
+            content: ""
+        }
+    }
+}
+
+@media (max-width:800px) {
+	.changeSkin-gear {
+        i {
+            font-size: 20px
+        }
+        span {
+            &::before {
+                content: ""
+            }
+        }
+    } 
+
+	.changeSkin {
+        i {
+            font-size: 20px
+        }
+    } 
+}
+
+.img-preload {
+	visibility: hidden;
+	width: 0;
+	height: 0
+}
+
+.rotating {
+	-webkit-animation: rotating 3s linear infinite;
+	-moz-animation: rotating 3s linear infinite;
+	-ms-animation: rotating 3s linear infinite;
+	-o-animation: rotating 3s linear infinite;
+	animation: rotating 3s linear infinite
+}
+
+.inline-block {
+	display: inline-block
+}

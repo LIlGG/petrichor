@@ -9,12 +9,14 @@
     <back-to-top/>
     <!-- live2d -->
     <live/>
-    <!-- 主题切换 -->
-    <div></div>
     <!-- 背景音乐播放软件 -->
     <a-player id="aplayer-float" :options="aplayerOptions"/>
     <!-- 搜索页面（默认隐藏） -->
     <search-modal :class="{'is-visible': isSearch}"/>
+    <!-- 主题切换 -->
+    <theme @click.native="changeSkin"/>
+    <!-- 主题菜单 -->
+    <skin-menu :class="{show: skinShow}"/>
   </div>
 </template>
 <script>
@@ -23,18 +25,23 @@ import { Navbar, SearchModal } from "layout/components";
 import Live from "components/Live";
 import BackToTop from "components/BackToTop";
 import APlayer from "components/APlayer";
-
+import Theme from "components/Theme";
+import SkinMenu from "components/SkinMenu";
 import { music } from "@/api/music";
+
 export default {
   components: {
     Navbar,
     SearchModal,
     BackToTop,
     Live,
-    APlayer
+    APlayer,
+    Theme,
+    SkinMenu
   },
   data() {
     return {
+      skinShow: false,
       scrollY: 0,
       clientHeight: 0,
       aplayerOptions: {
@@ -82,6 +89,9 @@ export default {
       // 当前位置小数
       let coorY = scrollY / surplus;
       NProgress.set(coorY);
+    },
+    changeSkin() {
+      this.skinShow = !this.skinShow;
     }
   },
   watch: {

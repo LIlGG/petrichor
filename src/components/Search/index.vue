@@ -19,7 +19,7 @@ export default {
         Object,
         required: false,
          default: function () {
-            return ['icon-search']
+            return ['iconfont', 'icon-search']
         }
       }
     },

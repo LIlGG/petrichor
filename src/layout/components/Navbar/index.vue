@@ -33,7 +33,7 @@ export default {
   },
   data() {
     return {
-      iconClass: ['js-toggle-search', 'iconsearch', 'icon-search'],
+      iconClass: ['iconfont','js-toggle-search', 'iconsearch', 'icon-search'],
     }
   },
   computed: {
