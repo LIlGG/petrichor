@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <div id="app" :style="theme" >
     <!-- 路由匹配到的组件，当前组件为一个全局的Layout框架 -->
-    <router-view/>
+    <router-view ref="root"/>
     <!-- 一些小工具(考虑封装成组件,不应该跟随界面刷新) -->
     <!-- 全局导航栏 -->
     <navbar/>
@@ -61,6 +61,23 @@ export default {
   computed: {
     isSearch() {
       return this.$store.getters.search;
+    },
+    theme() {
+      let newTheme = this.$store.getters.theme;
+
+      if(typeof  newTheme === 'string') {
+        newTheme = JSON.parse(newTheme);
+      }
+      console.log(newTheme)
+      let bgImg = "", bgColor = "";
+      if(newTheme.isDefault) { //默认主题
+        bgImg = "none";
+        bgColor = "rgba(255,255,255,1)";
+      } else {
+        bgImg = "url(" + newTheme.url + ")";
+        bgColor = "rgba(255,255,255,1)"
+      }
+      return {'background-image': bgImg, 'background-color': bgColor};
     }
   },
   mounted() {

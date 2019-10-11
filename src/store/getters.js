@@ -8,6 +8,7 @@ const getters = {
     emailDomain: state => state.user.emailDomain,
     emailName: state => state.user.emailName,
     scrollTopDuration: state =>  state.setting.scrollTopDuration,
+    theme: state => state.setting.theme,
 }
 
 export default getters;

@@ -2,7 +2,7 @@
     <div class="skin-menu">
         <div class="theme-controls row-container">
             <ul class="menu-list">
-                <li v-for="(item,index) in menus" :key="index" :id="item.id">
+                <li v-for="(item,index) in menus" :key="index" :id="item.id" @click="changeTheme(item)">
                     <icon :icon-class="item.icon" aria-hidden="true"/>
                 </li>
             </ul>
@@ -13,24 +13,35 @@
 
 <script>
 import Icon from "components/Icon";
+import $ from 'jquery';
 export default {
   components: {
     Icon
   },
+  computed: {
+    theme() {
+      return this.$store.getters.theme;
+    }
+  },
   data() {
     return {
       menus: [
-        { id: "white-bg", icon: ["fa", "fa-television"] },
-        { id: "sakura-bg", icon: ["iconfont", "icon-sakura"] },
-        { id: "gribs-bg", icon: ["fa", "fa-slack"] },
-        { id: "KAdots-bg", icon: ["iconfont", "icon-dots"] },
-        { id: "totem-bg", icon: ["fa", "fa-optin-monster"] },
-        { id: "pixiv-bg", icon: ["iconfont", "icon-pixiv"] },
-        { id: "bing-bg", icon: ["iconfont", "icon-bing"] },
-        { id: "dark-bg", icon: ["fa", "fa-moon-o"] }
+        { id: "white-bg", icon: ["fa", "fa-television"], url: '',  isDefault: true},
+        { id: "sakura-bg", icon: ["iconfont", "icon-sakura"], url: 'https://view.moezx.cc/images/2018/01/03/sakura.png'},
+        { id: "gribs-bg", icon: ["fa", "fa-slack"], url: 'https://view.moezx.cc/images/2018/01/03/plaid2dbf8.jpg' },
+        { id: "KAdots-bg", icon: ["iconfont", "icon-dots"], url: 'https://view.moezx.cc/images/2018/01/24/kyotoanimation.png' },
+        { id: "totem-bg", icon: ["fa", "fa-optin-monster"], url: 'https://view.moezx.cc/images/2018/09/17/little-monster.png'},
+        { id: "pixiv-bg", icon: ["iconfont", "icon-pixiv"], url: 'https://view.moezx.cc/images/2018/01/10/star02.png'},
+        { id: "bing-bg", icon: ["iconfont", "icon-bing"], url: 'https://api.shino.cc/bing/', trans: false },
+        { id: "dark-bg", icon: ["fa", "fa-moon-o"],url: 'https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.2/other-sites/api-index/images/me.png', bgStyle: ''}
       ]
     };
-  }
+  },
+  methods: {
+    changeTheme(themeItem) {
+      this.$store.dispatch('setting/setTheme', themeItem);
+    }
+  },
 };
 </script>
 <style lang="less" scoped>
