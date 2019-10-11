@@ -68,7 +68,6 @@ export default {
       if(typeof  newTheme === 'string') {
         newTheme = JSON.parse(newTheme);
       }
-      console.log(newTheme)
       let bgImg = "", bgColor = "";
       if(newTheme.isDefault) { //默认主题
         bgImg = "none";
@@ -77,6 +76,8 @@ export default {
         bgImg = "url(" + newTheme.url + ")";
         bgColor = "rgba(255,255,255,1)"
       }
+      // 关闭主题选择
+      this.skinShow = false;
       return {'background-image': bgImg, 'background-color': bgColor};
     }
   },
