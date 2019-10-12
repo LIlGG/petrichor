@@ -14,7 +14,7 @@
     <!-- 搜索页面（默认隐藏） -->
     <search-modal :class="{'is-visible': isSearch}"/>
     <!-- 主题切换 -->
-    <theme @click.native="changeSkin"/>
+    <theme @click.native="changeSkin" :style="isThemeStyle"/>
     <!-- 主题菜单 -->
     <skin-menu :class="{show: skinShow}"/>
     <!-- 白天黑夜模式 -->
@@ -65,7 +65,10 @@ export default {
       return this.$store.getters.search;
     },
     isnight() {
-      return this.$store.getters.theme.isnight;
+      return this.$store.getters.theme.isNight;
+    },
+    isThemeStyle() {
+      return this.$store.getters.theme.isNight ? {"background": 'rgba(255,255,255,0.8)'} : {"background": 'none'}
     },
     theme() {
       let newTheme = this.$store.getters.theme;

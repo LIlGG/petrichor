@@ -1,19 +1,19 @@
 <template>
-    <div class="skin-menu">
-        <div class="theme-controls row-container">
-            <ul class="menu-list">
-                <li v-for="(item,index) in menus" :key="index" :id="item.id" @click="changeTheme(item)">
-                    <icon :icon-class="item.icon" aria-hidden="true"/>
-                </li>
-            </ul>
-        </div>
-        <div class="font-family-controls row-container"></div>
+  <div class="skin-menu">
+    <div class="theme-controls row-container">
+      <ul class="menu-list">
+        <li v-for="(item,index) in menus" :key="index" :id="item.id" @click="changeTheme(item)">
+          <icon :icon-class="item.icon" aria-hidden="true"/>
+        </li>
+      </ul>
     </div>
+    <div class="font-family-controls row-container"></div>
+  </div>
 </template>
 
 <script>
 import Icon from "components/Icon";
-import $ from 'jquery';
+import $ from "jquery";
 export default {
   components: {
     Icon
@@ -26,22 +26,88 @@ export default {
   data() {
     return {
       menus: [
-        { id: "white-bg", icon: ["fa", "fa-television"], url: '',  isDefault: true},
-        { id: "sakura-bg", icon: ["iconfont", "icon-sakura"], url: 'https://view.moezx.cc/images/2018/01/03/sakura.png'},
-        { id: "gribs-bg", icon: ["fa", "fa-slack"], url: 'https://view.moezx.cc/images/2018/01/03/plaid2dbf8.jpg' },
-        { id: "KAdots-bg", icon: ["iconfont", "icon-dots"], url: 'https://view.moezx.cc/images/2018/01/24/kyotoanimation.png' },
-        { id: "totem-bg", icon: ["fa", "fa-optin-monster"], url: 'https://view.moezx.cc/images/2018/09/17/little-monster.png'},
-        { id: "pixiv-bg", icon: ["iconfont", "icon-pixiv"], url: 'https://view.moezx.cc/images/2018/01/10/star02.png'},
-        { id: "bing-bg", icon: ["iconfont", "icon-bing"], url: 'https://api.shino.cc/bing/', trans: false },
-        { id: "dark-bg", icon: ["fa", "fa-moon-o"],url: 'https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.2/other-sites/api-index/images/me.png', isnight: true}
+        {
+          id: "white-bg",
+          icon: ["fa", "fa-television"],
+          url: "",
+          isDefault: true, //是否为默认主题
+          skinSecter: false, // 
+          isNight: false, // 是否为夜晚模式
+          isSakura: false, // 是否为樱花
+          isBanner: true, // 是否显示底部波浪动画
+        },
+        {
+          id: "sakura-bg",
+          icon: ["iconfont", "icon-sakura"],
+          url: "https://view.moezx.cc/images/2018/01/03/sakura.png",
+          skinSecter: true,
+          isNight: false,
+          isSakura: true,
+          isBanner: false
+        },
+        {
+          id: "gribs-bg",
+          icon: ["fa", "fa-slack"],
+          url: "https://view.moezx.cc/images/2018/01/03/plaid2dbf8.jpg",
+          skinSecter: true,
+          isNight: false,
+          isSakura: true,
+          isBanner: false
+        },
+        {
+          id: "KAdots-bg",
+          icon: ["iconfont", "icon-dots"],
+          url: "https://view.moezx.cc/images/2018/01/24/kyotoanimation.png",
+          skinSecter: true,
+          isNight: false,
+          isSakura: true,
+          isBanner: false
+        },
+        {
+          id: "totem-bg",
+          icon: ["fa", "fa-optin-monster"],
+          url: "https://view.moezx.cc/images/2018/09/17/little-monster.png",
+          skinSecter: true,
+          isNight: false,
+          isSakura: true,
+          isBanner: false
+        },
+        {
+          id: "pixiv-bg",
+          icon: ["iconfont", "icon-pixiv"],
+          url: "https://view.moezx.cc/images/2018/01/10/star02.png",
+          skinSecter: true,
+          isNight: false,
+          isSakura: true,
+          isBanner: false
+        },
+        {
+          id: "bing-bg",
+          icon: ["iconfont", "icon-bing"],
+          url: "https://api.shino.cc/bing/",
+          skinSecter: true,
+          isNight: true,
+          isSakura: true,
+          isBanner: false
+        },
+        {
+          id: "dark-bg",
+          icon: ["fa", "fa-moon-o"],
+          url:
+            "https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.2/other-sites/api-index/images/me.png",
+          skinSecter: true,
+          isNight: true,
+          isSakura: true,
+          isBanner: false
+        }
       ]
     };
   },
   methods: {
     changeTheme(themeItem) {
-      this.$store.dispatch('setting/setTheme', themeItem);
+      this.$store.dispatch("setting/setTheme", themeItem);
     }
-  },
+  }
 };
 </script>
 <style lang="less" scoped>
