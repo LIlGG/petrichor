@@ -33,7 +33,7 @@ export default {
         { id: "totem-bg", icon: ["fa", "fa-optin-monster"], url: 'https://view.moezx.cc/images/2018/09/17/little-monster.png'},
         { id: "pixiv-bg", icon: ["iconfont", "icon-pixiv"], url: 'https://view.moezx.cc/images/2018/01/10/star02.png'},
         { id: "bing-bg", icon: ["iconfont", "icon-bing"], url: 'https://api.shino.cc/bing/', trans: false },
-        { id: "dark-bg", icon: ["fa", "fa-moon-o"],url: 'https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.2/other-sites/api-index/images/me.png', bgStyle: ''}
+        { id: "dark-bg", icon: ["fa", "fa-moon-o"],url: 'https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.2/other-sites/api-index/images/me.png', isnight: true}
       ]
     };
   },

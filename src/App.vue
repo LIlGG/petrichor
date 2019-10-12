@@ -17,6 +17,8 @@
     <theme @click.native="changeSkin"/>
     <!-- 主题菜单 -->
     <skin-menu :class="{show: skinShow}"/>
+    <!-- 白天黑夜模式 -->
+    <canvas class="night-mode-cover" v-show="isnight"></canvas>
   </div>
 </template>
 <script>
@@ -62,10 +64,13 @@ export default {
     isSearch() {
       return this.$store.getters.search;
     },
+    isnight() {
+      return this.$store.getters.theme.isnight;
+    },
     theme() {
       let newTheme = this.$store.getters.theme;
 
-      if(typeof  newTheme === 'string') {
+      if(typeof newTheme === 'string') {
         newTheme = JSON.parse(newTheme);
       }
       let bgImg = "", bgColor = "";
