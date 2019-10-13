@@ -5,7 +5,7 @@
       v-for="(value, index) in banner"
       :key="index"
       :id="bannerId(index)"
-      :class="{'banner_wave_hide': isBgVideoPlay}"
+      :class="{'banner_wave_hide': isBgVideoPlay, 'banner_wave_hide_fit_skin': isBanner}"
     ></div>
     <center-b-g id="centerbg" class="centerbg" :style="curHeight"/>
     <video-b-g id="video-container" ref="videoBG"/>
@@ -43,8 +43,11 @@ export default {
       let clientHeight = this.$store.getters.clientHeight;
       return "height: " + clientHeight + "px";
     },
-    isBgVideoPlay() {
+    isBgVideoPlay() { // 与音频播放有关
       return this.$store.getters.bgVideoPlay;
+    },
+    isBanner() { // 是否隐藏（与主题有关）
+      return !this.$store.getters.theme.isBanner;
     }
   }
 };
