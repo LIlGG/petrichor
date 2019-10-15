@@ -8,9 +8,9 @@
         <logo :logo="logoInfo"></logo>
       </div>
       <div class="lower-cantiner">
-        <menu>
-          <nav-item></nav-item>
-        </menu>
+        <div>
+            <nav-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path"></nav-item>
+        </div>
       </div>
       <div class="header-user-avatar">
         <login></login>
@@ -23,13 +23,18 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import Logo from "./Logo";
 import Icon from "components/Icon"
+import NavItem from './NavItem';
+
 export default {
   name: "Navbar",
   components: { 
     Logo,
-    Icon
+    Icon,
+    NavItem
   },
   data() {
     return {
@@ -37,6 +42,9 @@ export default {
     }
   },
   computed: {
+    routes() {
+      return this.$store.getters.routes
+    },
     logoInfo() {
       return {
         url: "",

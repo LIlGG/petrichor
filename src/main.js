@@ -5,6 +5,8 @@ import store from './store'
 import NProgress from 'nprogress'
 import '@/styles/style.less'
 import '@/styles/index.less'
+
+import './permission'
 Vue.config.productionTip = false
 
 new Vue({

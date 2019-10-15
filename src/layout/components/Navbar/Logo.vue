@@ -1,7 +1,7 @@
 <template>
   <span class="site-title">
     <span class="logolink moe-mashiro">
-      <a :href="logo.url" :alt="logo.title">
+      <router-link to="/" :alt="logo.title">
         <ruby>
           <span class="sakuraso">{{logo.sakuraso}}</span>
           <span class="no">{{logo.no}}</span>
@@ -10,7 +10,7 @@
           <rt class="chinese-font">{{logo.title}}</rt>
           <rp></rp>
         </ruby>
-      </a>
+      </router-link>
     </span>
   </span>
 </template>
