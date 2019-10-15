@@ -13,7 +13,6 @@
 
 <script>
 import Icon from "components/Icon";
-import $ from "jquery";
 export default {
   components: {
     Icon
