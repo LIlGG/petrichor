@@ -9,6 +9,9 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
+    meta: { 
+        title: '首页'
+    },
   },
   {
     path: '/404',
@@ -21,19 +24,25 @@ export const asyncRoutes = [
         path: '/archives',
         component: Layout,
         name: 'archives',
-        title: '归档',
+        meta: { 
+            title: '归档'
+        },
         children: [
             {
                 path: 'hacking',
                 component: () => import ('layout/index'),
                 name: 'hacking',
-                title: '极客'
+                meta: { 
+                    title: '极客'
+                },  
             },
             {
                 path: 'article',
                 component: () => import ('layout/index'),
                 name: 'article',
-                title: '文章'
+                meta: { 
+                    title: '文章'
+                },
             }
         ]
     },
