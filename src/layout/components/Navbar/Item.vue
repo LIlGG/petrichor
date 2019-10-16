@@ -1,29 +1,40 @@
 <script>
 export default {
-  name: 'MenuItem',
+  name: "MenuItem",
   functional: true,
   props: {
     icon: {
       type: String,
-      default: ''
+      default: ""
     },
     title: {
       type: String,
-      default: ''
+      default: ""
+    },
+    span: {
+      type: String,
+      default: ""
     }
   },
   render(h, context) {
-    const { icon, title } = context.props
-    const vnodes = []
-
+    const { icon, title, span } = context.props;
+    let vnodes = [];
     if (icon) {
-      vnodes.push(<svg-icon icon-class={icon}/>)
+      vnodes.push(<i class={icon} aria-hidden="true" />);
     }
 
     if (title) {
-      vnodes.push(<span slot='title'>{(title)}</span>)
+      vnodes.push(<p>{title}</p>);
     }
-    return vnodes
+
+    if (span) {
+      let vnode = [];
+      vnode.push(<span class={span}></span>);
+      vnode.push(vnodes)
+      vnodes = vnode;
+    }
+
+    return vnodes;
   }
-}
+};
 </script>
