@@ -14,26 +14,22 @@ export default {
     span: {
       type: String,
       default: ""
-    }
+    },
   },
   render(h, context) {
     const { icon, title, span } = context.props;
     let vnodes = [];
     if (icon) {
-      vnodes.push(<i class={icon} aria-hidden="true" />);
+      vnodes.push(<i class={icon} aria-hidden="true"/>);
     }
 
     if (title) {
       vnodes.push(<p>{title}</p>);
     }
 
-    if (span) {
-      let vnode = [];
-      vnode.push(<span class={span}></span>);
-      vnode.push(vnodes)
-      vnodes = vnode;
+    if(span){
+      return h( 'span' , {class: span}, vnodes);
     }
-
     return vnodes;
   }
 };
