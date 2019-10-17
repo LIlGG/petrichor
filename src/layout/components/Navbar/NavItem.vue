@@ -12,7 +12,7 @@
     <!-- 渲染子节点菜单 -->
     <!-- 如果当前节点有多个子节点的时候则进行渲染 -->
     <template v-if="hasShowingChild(item.children)">
-      <ul v-show="subShow">
+      <ul  v-show="subShow">
         <nav-item
           v-for="child in item.children"
           :key="child.path"
@@ -47,10 +47,6 @@ export default {
     basePath: {
       type: String,
       default: ""
-    },
-    subShow: {
-      type: Boolean,
-      default: false
     }
   },
   data() {

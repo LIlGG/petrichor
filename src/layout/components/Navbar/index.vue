@@ -12,7 +12,7 @@
            <!-- 这里在当前页面小的时候，展示一个按钮 -->
           <nav class="mobile-fit-control hide">
             <ul class="menu">
-              <nav-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" :subShow="subShow"></nav-item>
+              <nav-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path"></nav-item>
             </ul>
           </nav>
         </div>
@@ -71,7 +71,7 @@ export default {
   methods: {
     search() {
       this.$store.dispatch('app/setSearch', true);
-    }
+    },
   }
 };
 </script>
