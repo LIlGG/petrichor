@@ -15,6 +15,9 @@
         .site-header {
           display: block;
         }
+        .lower-cantiner {
+          display: block;
+        }
       }
       &:hover {
         &.is-homepage {
@@ -75,6 +78,26 @@
           display: block;
         }
       }
+      li {
+        ul {
+          opacity: 1;
+          position: absolute;
+          background: #fff;
+          padding: 10px;
+          top: 46px;
+          right: -13px;
+          width: 80px;
+          text-align: center;
+          z-index: 9999;
+          border-radius: 5px;
+          box-shadow: 0 1px 40px -8px rgba(0,0,0,.5);
+          animation: fadeInUp .3s .1s ease both;
+          li {
+            width: 100%;
+            margin: 0;
+          }
+        }
+      }
     }
     ul {
       margin: 0;
@@ -85,7 +108,7 @@
         float: left;
         margin: 0 13px;
         position: relative;
-        -webkit-transtition: all 1s ease;
+        transition: all 1s ease;
         a {
           padding: 10px 0;
           display: inline-block;

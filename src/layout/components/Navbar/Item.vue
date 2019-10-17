@@ -24,12 +24,16 @@ export default {
     }
 
     if (title) {
-      vnodes.push(<p>{title}</p>);
+      vnodes.push(title);
     }
 
     if(span){
       return h( 'span' , {class: span}, vnodes);
     }
+
+    
+
+
     return vnodes;
   }
 };
