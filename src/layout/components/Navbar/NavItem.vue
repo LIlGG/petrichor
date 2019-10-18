@@ -12,14 +12,13 @@
     <!-- 渲染子节点菜单 -->
     <!-- 如果当前节点有多个子节点的时候则进行渲染 -->
     <template v-if="hasShowingChild(item.children)">
-      <ul  v-show="subShow">
+      <ul>
         <nav-item
           v-for="child in item.children"
           :key="child.path"
           :is-nest="true"
           :item="child"
           :base-path="resolvePath(child.path)"
-          class="nest-menu"
         />
       </ul>
     </template>
@@ -69,6 +68,9 @@ export default {
       }
       return path.resolve(this.basePath, routePath);
     },
+    itemOver() {
+      console.log("移入")
+    }
   }
 };
 </script>

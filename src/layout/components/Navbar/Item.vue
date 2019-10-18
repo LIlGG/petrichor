@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "MenuItem",
+  name: "Item",
   functional: true,
   props: {
     icon: {
@@ -30,10 +30,6 @@ export default {
     if(span){
       return h( 'span' , {class: span}, vnodes);
     }
-
-    
-
-
     return vnodes;
   }
 };

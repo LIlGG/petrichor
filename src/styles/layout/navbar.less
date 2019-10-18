@@ -92,6 +92,16 @@
           border-radius: 5px;
           box-shadow: 0 1px 40px -8px rgba(0,0,0,.5);
           animation: fadeInUp .3s .1s ease both;
+          &:before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            margin-left: -10px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent transparent #fff;
+          }
           li {
             width: 100%;
             margin: 0;
@@ -119,17 +129,17 @@
               max-width: 100%;
             }
           }
-          &:after {
-            content: "";
-            display: block;
-            position: absolute;
-            bottom: -16px;
-            height: 6px;
-            background-color: #fe9600;
-            width: 100%;
-            max-width: 0;
-            transition: max-width 0.25s ease-in-out;
-          }
+          // &::after {
+          //   content: "";
+          //   display: block;
+          //   position: absolute;
+          //   bottom: -16px;
+          //   height: 6px;
+          //   background-color: #fe9600;
+          //   width: 100%;
+          //   max-width: 0;
+          //   transition: max-width 0.25s ease-in-out;
+          // }
         }
   
         ul {

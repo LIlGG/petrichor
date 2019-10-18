@@ -11,7 +11,7 @@
         <div class="lower">
            <!-- 这里在当前页面小的时候，展示一个按钮 -->
           <nav class="mobile-fit-control hide">
-            <ul class="menu">
+            <ul class="menu" v-cloak>
               <nav-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path"></nav-item>
             </ul>
           </nav>
@@ -43,8 +43,7 @@ export default {
   },
   data() {
     return {
-      iconClass: ['iconfont','js-toggle-search', 'iconsearch', 'icon-search'],
-      subShow: false
+      iconClass: ['iconfont','js-toggle-search', 'iconsearch', 'icon-search']
     }
   },
   computed: {
@@ -71,7 +70,7 @@ export default {
   methods: {
     search() {
       this.$store.dispatch('app/setSearch', true);
-    },
+    }
   }
 };
 </script>
