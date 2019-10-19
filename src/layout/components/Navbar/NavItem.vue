@@ -1,6 +1,6 @@
 <template>
   <!-- 是否为隐藏的节点 -->
-  <li v-if="!item.hidden">
+  <li v-if="!item.hidden" @mouseover="itemOver" @mouseout="itemOut">
     <!-- 渲染父节点菜单（父节点菜单有可能不进行点击跳转） -->
     <app-link v-if="item.meta" :to="resolvePath(item.path)">
       <item
@@ -12,7 +12,7 @@
     <!-- 渲染子节点菜单 -->
     <!-- 如果当前节点有多个子节点的时候则进行渲染 -->
     <template v-if="hasShowingChild(item.children)">
-      <ul>
+      <ul v-show="subShow">
         <nav-item
           v-for="child in item.children"
           :key="child.path"
@@ -50,6 +50,7 @@ export default {
   },
   data() {
     return {
+      subShow: false
     };
   },
   methods: {
@@ -63,7 +64,10 @@ export default {
       return path.resolve(this.basePath, routePath);
     },
     itemOver() {
-      console.log("移入")
+      this.subShow = true;
+    },
+    itemOut() {
+      this.subShow = false;
     }
   }
 };
