@@ -18,7 +18,7 @@
           :key="child.path"
           :is-nest="true"
           :item="child"
-          :base-path="resolvePath(child.path)"
+          :base-path="item.path"
         />
       </ul>
     </template>
@@ -60,12 +60,6 @@ export default {
       return false;
     },
     resolvePath(routePath) {
-      if (isExternal(routePath)) {
-        return routePath;
-      }
-      if (isExternal(this.basePath)) {
-        return this.basePath;
-      }
       return path.resolve(this.basePath, routePath);
     },
     itemOver() {
