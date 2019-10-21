@@ -54,31 +54,31 @@ export default {
           likeClass: "social-github",
           title: "github",
           imgSrc:
-            "https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/sns/github.png"
+            "https://cdn.lixingyong.com/img/Sakura/images/sns/github.png"
         },
         {
           likeHref: "https://music.163.com/#/user/home?id=1541792990",
           likeClass: "social-cloudMusic",
           title: "CloudMusic",
           imgSrc:
-            "https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/sns/wangyiyun.png"
+            "https://cdn.lixingyong.com/img/Sakura/images/sns/wangyiyun.png"
         },
         {
           likeHref: "https://www.zhihu.com/people/ju-zi-57-6-28/activities",
           likeClass: "social-zhihu",
           title: "Zhihu",
           imgSrc:
-            "https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/sns/zhihu.png"
+            "https://cdn.lixingyong.com/img/Sakura/images/sns/zhihu.png"
         },
         {
           likeClass: "social-email",
           title: "E-mail",
           imgSrc:
-            "https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/sns/email.svg"
+            "https://cdn.lixingyong.com/img/Sakura/images/sns/email.svg"
         }
       ],
       nextImg:
-        "https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/next-b.svg"
+        "https://cdn.lixingyong.com/img/Sakura/images/next-b.svg"
     };
   },
   methods: {

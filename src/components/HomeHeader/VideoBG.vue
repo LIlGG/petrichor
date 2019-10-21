@@ -44,8 +44,8 @@ export default {
       let video = this.$refs.bgvideo;
       if (video.paused) {
         //已经暂停则开始播放
-        this.playerUrl =
-          "https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.3//The Pet Girl of Sakurasou.mp4";
+        this.playerUrl = 
+          "https://cdn.lixingyong.com/video/The Pet Girl of Sakurasou.mp4";
         this.$store.dispatch("app/setBgVideoPlay", true);
         this.playcallback(video);
         if (!this.isVideo) {
