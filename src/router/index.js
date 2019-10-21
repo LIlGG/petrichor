@@ -3,6 +3,7 @@ import Router from 'vue-router';
 
 Vue.use(Router)
 import Layout from '@/layout/index'
+import { Page } from '@/layout/components'
 
 //通用路由表 
 export const constantRoutes = [
@@ -35,7 +36,7 @@ export const asyncRoutes = [
         children: [
             {
                 path: 'hacking',
-                component: () => import('layout/index'),
+                component: Page,
                 name: 'hacking',
                 meta: {
                     title: ' 极客',
@@ -44,7 +45,7 @@ export const asyncRoutes = [
             },
             {
                 path: 'article',
-                component: () => import('layout/index'),
+                component: Page,
                 name: 'article',
                 meta: {
                     title: ' 文章',
@@ -53,7 +54,7 @@ export const asyncRoutes = [
             },
             {
                 path: 'review',
-                component: () => import('layout/index'),
+                component: Page,
                 name: 'review',
                 meta: {
                     title: ' 影评',
@@ -62,7 +63,7 @@ export const asyncRoutes = [
             },
             {
                 path: 'thingking',
-                component: () => import('layout/index'),
+                component: Page,
                 name: 'thingking',
                 meta: {
                     title: ' 随想',
@@ -71,7 +72,7 @@ export const asyncRoutes = [
             },
             {
                 path: 'top',
-                component: () => import('layout/index'),
+                component: Page,
                 name: 'top',
                 meta: {
                     title: ' 笔记',
@@ -93,7 +94,7 @@ export const asyncRoutes = [
         children: [
             {
                 path: 'book-list',
-                component: () => import('layout/index'),
+                component: Page,
                 name: 'booklist',
                 meta: {
                     title: ' 书单',
@@ -102,7 +103,7 @@ export const asyncRoutes = [
             },
             {
                 path: 'bangumi',
-                component: () => import('layout/index'),
+                component: Page,
                 name: 'bangumi',
                 meta: {
                     title: ' 番组',
@@ -111,7 +112,7 @@ export const asyncRoutes = [
             },
             {
                 path: 'music',
-                component: () => import('layout/index'),
+                component: Page,
                 name: 'music',
                 meta: {
                     title: ' 歌单',

@@ -1,7 +1,9 @@
 <template>
   <div id="body" :style="theme" >
     <!-- 一些小工具(考虑封装成组件,不应该跟随界面刷新) -->
-    <page/>
+    <container>
+      <router-view/>
+    </container>
     <!-- 全局导航栏 -->
     <navbar/>
     <!-- 回到顶部工具 -->
@@ -22,7 +24,7 @@
 </template>
 <script>
 import NProgress from "nprogress";
-import { Navbar, SearchModal, Page } from "layout/components";
+import { Navbar, SearchModal, Container } from "layout/components";
 import Live from "components/Live";
 import BackToTop from "components/BackToTop";
 import APlayer from "components/APlayer";
@@ -33,7 +35,7 @@ import { music } from "@/api/music";
 
 export default {
   components: {
-    Page,
+    Container,
     Navbar,
     SearchModal,
     BackToTop,

@@ -1,35 +1,31 @@
-<!-- 全局布局 -->
+<!-- 
+博客内容页面主题（必须具有高复用性,因此大部分内容选择后台获取。之后缓存）
+为了方便起见，我先自己预定义一个最基本的模板，剩余的模板均使用后台进行读取
+当前界面只实现最基本的功能，如翻页，展示等，具体功能视后台html而定
+ -->
 <template>
-    <section id="main-container">
-        <!-- 头部(home) -->
-        <HomeHeader :banner="banner" class="headertop filter-dot" style="height: auto"></HomeHeader>
-        <!-- 头部（非Home) -->
-        <!-- 页面主体 -->
-        <div></div>
-        <!-- 页脚 -->
-        <footer></footer>
-    </section>
+    <div id="page" class="site wrapper">
+        <div class="blank" style="padding-top: 75px;"></div>
+        <div>
+            本地模板
+           <!-- html模板可以从后台传过来，也可以预先写好模板, 目前来说最好是先写一个本地模板，之后全部采用后端读取 -->
+        </div>
+        <!-- <div class="pattern-center">
+            <div class="pattern-attachment-img">
+               
+            </div>
+            <header class="pattern-header">
+               
+            </header>
+        </div>
+        <div id="content" class="site-content">
+            
+        </div> -->
+    </div>
 </template>
 
 <script>
-import  HomeHeader from "components/HomeHeader";
 export default {
-  name: "Layout",
-  components: {
-      HomeHeader
-  },
-  data() {
-      return {
-          banner: ["1","2"]
-      }
-  }
-};
-</script>
-<style lang="less">
-.centerbg {
-	background-image: url("https://api.2heng.xin/cover/");
-	background-position: center center;
-	background-attachment: inherit;
-}
 
-</style>
+}
+</script>
