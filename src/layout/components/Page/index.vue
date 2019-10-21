@@ -1,6 +1,6 @@
 <!-- 全局布局 -->
 <template>
-    <section>
+    <section id="main-container">
         <!-- 头部(home) -->
         <HomeHeader :banner="banner" class="headertop filter-dot" style="height: auto"></HomeHeader>
         <!-- 头部（非Home) -->

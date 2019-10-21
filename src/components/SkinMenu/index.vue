@@ -93,7 +93,7 @@ export default {
           id: "dark-bg",
           icon: ["fa", "fa-moon-o"],
           url:
-            "https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.2/other-sites/api-index/images/me.png",
+            "https://cdn.lixingyong.com/other-sites/api-index/images/me.png",
           skinSecter: true,
           isNight: true,
           isSakura: true,
