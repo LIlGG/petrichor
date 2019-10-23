@@ -3,11 +3,14 @@ import App from './App'
 import router from './router'
 import store from './store'
 import NProgress from 'nprogress'
+import GL_Component from 'components/globalcomponents';
 import '@/styles/style.less'
 import '@/styles/index.less'
 
+
 import './permission'
 Vue.config.productionTip = false
+Vue.use(GL_Component)
 
 new Vue({
   router,

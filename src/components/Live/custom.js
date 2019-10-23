@@ -27,9 +27,6 @@ export default {
     'selector': ['#video-btn'],
     'message': ['想播放视频吗？可以先关闭左下角背景音乐~~']
   },{
-    'selector': ['#video-btn'],
-    'message': ['想播放视频吗？可以先关闭左下角背景音乐~~']
-  },{
     'selector': ['.changeSkin-gear'],
     'message': ['可以换皮肤哦~']
   },{

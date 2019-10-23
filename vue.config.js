@@ -49,5 +49,6 @@ module.exports = {
             .set('layout', resolve('src/layout'))
             .set('vendor', resolve('src/vendor'))
         config.resolve.symlinks(true)
-    }
+    },
+    runtimeCompiler: true
 }

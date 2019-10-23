@@ -11,7 +11,7 @@
     <!-- live2d -->
     <live/>
     <!-- 背景音乐播放软件 -->
-    <a-player id="aplayer-float" :options="aplayerOptions"/>
+    <aplayer id="aplayer-float" :musics="musicQuery"/>
     <!-- 搜索页面（默认隐藏） -->
     <search-modal :class="{'is-visible': isSearch}"/>
     <!-- 主题切换 -->
@@ -27,11 +27,9 @@ import NProgress from "nprogress";
 import { Navbar, SearchModal, Container } from "layout/components";
 import Live from "components/Live";
 import BackToTop from "components/BackToTop";
-import APlayer from "components/APlayer";
 import Theme from "components/Theme";
 import SkinMenu from "components/SkinMenu";
 
-import { music } from "@/api/music";
 
 export default {
   components: {
@@ -40,7 +38,6 @@ export default {
     SearchModal,
     BackToTop,
     Live,
-    APlayer,
     Theme,
     SkinMenu
   },
@@ -49,18 +46,6 @@ export default {
       skinShow: false,
       scrollY: 0,
       clientHeight: 0,
-      aplayerOptions: {
-        lrcType: 3,
-        fixed: true,
-        listFolded: false,
-        order: "random",
-        autoplay: false
-      },
-      musicQuery: {
-        server: "netease",
-        type: "playlist",
-        id: 2345868969
-      }
     };
   },
   computed: {
@@ -90,6 +75,13 @@ export default {
       // 关闭主题选择
       this.skinShow = false;
       return {'background-image': bgImg, 'background-color': bgColor};
+    },
+    musicQuery() {
+      return  {
+        server: "netease",
+        type: "playlist",
+        id: 2345868969
+      }
     }
   },
   mounted() {
@@ -101,11 +93,6 @@ export default {
     window.onresize = () => {
       this.clientHeight = document.documentElement.clientHeight;
     };
-
-    // 假设获取歌单
-    music(this.musicQuery).then(response => {
-      this.$set(this.aplayerOptions, "audio", response);
-    });
   },
   methods: {
     handleScroll() {

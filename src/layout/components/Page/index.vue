@@ -7,8 +7,8 @@
     <div id="page" class="site wrapper">
         <div class="blank" style="padding-top: 75px;"></div>
         <div>
-            本地模板
-           <!-- html模板可以从后台传过来，也可以预先写好模板, 目前来说最好是先写一个本地模板，之后全部采用后端读取 -->
+            <!--<component :is="componentDiv"></component> -->
+            <!-- html模板可以从后台传过来，也可以预先写好模板, 目前来说最好是先写一个本地模板，之后全部采用后端读取 -->
         </div>
         <!-- <div class="pattern-center">
             <div class="pattern-attachment-img">
@@ -20,12 +20,29 @@
         </div>
         <div id="content" class="site-content">
             
-        </div> -->
+        </div>-->
     </div>
 </template>
 
 <script>
 export default {
-
-}
+  data() {
+    return {
+      shtml: `<div><aplayer :musics="{ server: 'netease', type: 'playlist',id: 2345868969 }" :option="{fixed: false}"></aplayer><aplayer :musics="{ server: 'netease', type: 'playlist',id: 2345868969 }" :option="{fixed: false}"></aplayer></div>`,
+      musicQuery: {
+        server: "netease",
+        type: "playlist",
+        id: 2345868969
+      },
+      musicOption: {
+          fixed: false
+      }
+    };
+  },
+  computed: {
+    componentDiv() {
+      return {template: this.shtml};
+    }
+  }
+};
 </script>
