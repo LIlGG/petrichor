@@ -3,7 +3,6 @@ import Router from 'vue-router';
 
 Vue.use(Router)
 import Layout from '@/layout/index'
-import { Page } from '@/layout/components'
 
 //通用路由表 
 export const constantRoutes = [
@@ -36,7 +35,7 @@ export const asyncRoutes = [
         children: [
             {
                 path: 'hacking',
-                component: Page,
+                component: () => import('@/page/page'),
                 name: 'hacking',
                 meta: {
                     title: ' 极客',
@@ -45,7 +44,7 @@ export const asyncRoutes = [
             },
             {
                 path: 'article',
-                component: Page,
+                component: () => import('@/page/page'),
                 name: 'article',
                 meta: {
                     title: ' 文章',
@@ -54,7 +53,7 @@ export const asyncRoutes = [
             },
             {
                 path: 'review',
-                component: Page,
+                component: () => import('@/page/page'),
                 name: 'review',
                 meta: {
                     title: ' 影评',
@@ -63,7 +62,7 @@ export const asyncRoutes = [
             },
             {
                 path: 'thingking',
-                component: Page,
+                component: () => import('@/page/page'),
                 name: 'thingking',
                 meta: {
                     title: ' 随想',
@@ -72,7 +71,7 @@ export const asyncRoutes = [
             },
             {
                 path: 'top',
-                component: Page,
+                component: () => import('@/page/page'),
                 name: 'top',
                 meta: {
                     title: ' 笔记',
@@ -94,7 +93,7 @@ export const asyncRoutes = [
         children: [
             {
                 path: 'book-list',
-                component: Page,
+                component: () => import('@/page/page'),
                 name: 'booklist',
                 meta: {
                     title: ' 书单',
@@ -103,7 +102,7 @@ export const asyncRoutes = [
             },
             {
                 path: 'bangumi',
-                component: Page,
+                component: () => import('@/page/page'),
                 name: 'bangumi',
                 meta: {
                     title: ' 番组',
@@ -112,7 +111,7 @@ export const asyncRoutes = [
             },
             {
                 path: 'music',
-                component: Page,
+                component: () => import('@/page/page'),
                 name: 'music',
                 meta: {
                     title: ' 歌单',
@@ -125,6 +124,7 @@ export const asyncRoutes = [
 ]
 
 const createRouter = () => new Router({
+    mode: 'history',
     scrollBehavior: () => ({ y: 0 }),
     routes: constantRoutes
 })

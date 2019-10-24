@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import  HomeHeader from "components/HomeHeader";
+import  HomeHeader  from "../HomeHeader";
 export default {
   name: "Container",
   components: {

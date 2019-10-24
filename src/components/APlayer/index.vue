@@ -27,7 +27,6 @@ export default {
   },
   methods: {
     init() {
-      console.log(this.option, this.musics)
       if (this.option) {
         this.aplayerOptions = Object.assign(
           {},

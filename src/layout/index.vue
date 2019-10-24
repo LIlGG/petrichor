@@ -2,7 +2,9 @@
   <div id="body" :style="theme" >
     <!-- 一些小工具(考虑封装成组件,不应该跟随界面刷新) -->
     <container>
-      <router-view/>
+      <keep-alive>
+        <router-view/>
+      </keep-alive>
     </container>
     <!-- 全局导航栏 -->
     <navbar/>
