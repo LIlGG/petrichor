@@ -50,5 +50,6 @@ module.exports = {
             .set('vendor', resolve('src/vendor'))
         config.resolve.symlinks(true)
     },
-    runtimeCompiler: true
+    runtimeCompiler: true,
+    
 }

@@ -1,3 +1,4 @@
 export {default as Navbar} from './Navbar/index.vue'
 export {default as SearchModal} from './SearchModal/index.vue'
-export {default as Container} from './Container/index.vue'
+export {default as HomeHeader} from './HomeHeader/index.vue'
+export {default as Footer} from './Footer/index.vue'

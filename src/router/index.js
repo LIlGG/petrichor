@@ -2,13 +2,13 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 Vue.use(Router)
-import Layout from '@/layout/index'
+
 
 //通用路由表 
 export const constantRoutes = [
     {
         path: '/',
-        component: Layout,
+        component: () => import('@/page/page'),
         meta: {
             title: ' 首页',
             span: 'faa-parent animated-hover',
@@ -25,7 +25,7 @@ export const constantRoutes = [
 export const asyncRoutes = [
     {
         path: '/archives',
-        component: Layout,
+        component: () => import('@/page/page'),
         name: 'archives',
         meta: {
             title: ' 归档',
@@ -82,7 +82,7 @@ export const asyncRoutes = [
     },
     {
         path: '/*',
-        component: Layout,
+        component: () => import('@/page/page'),
         name: 'list',
         meta: {
             title: ' 清单',
