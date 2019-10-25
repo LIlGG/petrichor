@@ -15,10 +15,10 @@
                             <a
                                 style="color: #000000;text-decoration:none;"
                                 href="#"
-                            >Mashiro</a>
+                            >{{footInfo.createdName}}</a>
                         </span>
                     </p>
-                    <p>© 2019 深巷里的黑猫 辽ICP备19006482号</p>
+                    <p>{{footInfo.des}}</p>
                     <p style="font-family: 'Ubuntu', sans-serif;">
                         <span style="color: #b9b9b9;">
                             Theme
@@ -54,7 +54,9 @@ export default {
         },
         textStyle: { 
             color : "#666666"
-        }
+        },
+        des : "© 2019 深巷里的黑猫 辽ICP备19006482号",
+        createdName: "Mashiro"
       },
       imgPreload: [
         "https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/wordpress-rotating-ball-o.svg",
