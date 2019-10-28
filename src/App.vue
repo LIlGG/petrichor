@@ -26,7 +26,7 @@
 <script>
 import NProgress from "nprogress";
 import { Navbar, SearchModal, Container } from "layout/components";
-import Layout from '@/layout/index'
+import Layout from "@/layout/index";
 import Live from "components/Live";
 import BackToTop from "components/BackToTop";
 import Theme from "components/Theme";
@@ -103,6 +103,8 @@ export default {
     window.onresize = () => {
       this.clientHeight = document.documentElement.clientHeight;
     };
+    // 添加全局复制事件
+    // this.addCopyright();
   },
   methods: {
     handleScroll() {
@@ -118,7 +120,15 @@ export default {
     },
     changeSkin() {
       this.skinShow = !this.skinShow;
-    }
+    },
+    addCopyright() {
+      document.body.addEventListener("copy", (e) => {
+        comment.createButterbar(
+          "复制成功！<br>Copied to clipboard successfully!",
+          1000
+        );
+      });
+    },
   },
   watch: {
     clientHeight(newValue) {
