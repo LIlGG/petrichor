@@ -104,7 +104,7 @@ export default {
       this.clientHeight = document.documentElement.clientHeight;
     };
     // 添加全局复制事件
-    // this.addCopyright();
+     this.addCopyright();
   },
   methods: {
     handleScroll() {
@@ -123,10 +123,7 @@ export default {
     },
     addCopyright() {
       document.body.addEventListener("copy", (e) => {
-        comment.createButterbar(
-          "复制成功！<br>Copied to clipboard successfully!",
-          1000
-        );
+        this.$tips( "复制成功！<br>Copied to clipboard successfully!", 1000 )
       });
     },
   },

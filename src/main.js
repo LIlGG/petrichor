@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import NProgress from 'nprogress'
 import GL_Component from 'components/globalcomponents';
+// 引入全局提示组件
+import Tips from '@/plugins/Tips';
 import '@/styles/style.less'
 import '@/styles/index.less'
 
@@ -11,6 +13,7 @@ import '@/styles/index.less'
 import './permission'
 Vue.config.productionTip = false
 Vue.use(GL_Component)
+Vue.use(Tips);
 
 new Vue({
   router,
