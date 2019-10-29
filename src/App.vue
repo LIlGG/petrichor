@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="body" :style="theme">
     <!-- 一些小工具(考虑封装成组件,不应该跟随界面刷新) -->
     <layout>
       <router-view :key="key"/>

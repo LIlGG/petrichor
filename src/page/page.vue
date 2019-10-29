@@ -8,6 +8,16 @@
     <div class="blank" style="padding-top: 0px;"></div>
     <div id="content" class="site-content">
       <feature :feature="feature"/>
+      <div id="primary" class="content-area">
+        <!-- #main -->
+        <main id="main" class="site-main" role="main">
+          <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
+            <i class="fa fa-envira" aria-hidden="true"></i>
+            Discovery
+          </h1>
+          
+        </main>
+      </div>
     </div>
     <!-- <div> -->
     <!--<component :is="componentDiv"></component> -->
@@ -49,13 +59,15 @@ export default {
         featureList: [
           {
             link: "/theme-sakura/",
-            img: "https://cdn.jsdelivr.net/gh/moezx/cdn@3.3.2/img/other/sakura.md.png",
+            img:
+              "https://cdn.jsdelivr.net/gh/moezx/cdn@3.3.2/img/other/sakura.md.png",
             title: "Sakura",
             description: "本站 WordPress 主题"
           },
           {
             link: "/theme-sakura/",
-            img: "https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.6/img/other/th%20(3).jpg",
+            img:
+              "https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.6/img/other/th%20(3).jpg",
             title: "Pixiv",
             description: "P 站的正确打开方式"
           },
@@ -87,14 +99,14 @@ export default {
   margin-left: auto;
   margin-right: auto;
   background-color: rgba(255, 255, 255, 0.8);
-  &::after {
+  &::before, &::after{
     content: "";
     display: table;
     table-layout: fixed;
-    clear: both
+    clear: both;
   }
 }
 #content {
-    animation: main 1s
+  animation: main 1s;
 }
 </style>

@@ -95,14 +95,14 @@ export default {
           }
         });
     }, 20000);
-    this.modelPath = "http://live2d.lixingyong.com/live2d/Pio/appv3.json";
+    this.modelPath = "https://live2d.lixingyong.com/live2d/Pio/appv3.json";
   },
   methods: {
     toolsClick(item) {
       switch (item.tabMsg) {
         case "Change":
           this.$refs.l2dMange.initL2dMange(
-            "http://live2d.lixingyong.com/live2d/Pio/appv3.json"
+            "https://live2d.lixingyong.com/live2d/Pio/appv3.json"
           );
           // this.modelPath = 'http://127.0.0.1:8000/media/static/live2d/Pio/model.json'
           break;
