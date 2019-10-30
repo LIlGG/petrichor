@@ -15,7 +15,7 @@
             <i class="fa fa-envira" aria-hidden="true"></i>
             Discovery
           </h1>
-          
+          <con v-for="(item, index) in thumbList" :thumb="item" :key="index" :class="isLeft(index)"/>
         </main>
       </div>
     </div>
@@ -39,9 +39,11 @@
 
 <script>
 import Feature from "@/views/Feature";
+import Con from '@/tpl/content'
 export default {
   components: {
-    Feature
+    Feature,
+    Con
   },
   data() {
     return {
@@ -78,13 +80,32 @@ export default {
             description: "游戏主界面 H5 复刻"
           }
         ]
-      }
+      },
+      thumbList: [
+        {
+          link: "#",
+          img: "https://static.2heng.xin/wp-content/uploads//2019/06/74857125_p0.png",
+          time: "2019-10-30 12:00:00",
+          isSticky: true,
+          title: "PIL 合并 RGB 通道图与 Alpha 通道图",
+          views: 7153,
+          comments: 26,
+          categoryLink: "#",
+          categoryName: "无",
+          theExcerpt: "明日方舟拆包以后发现立绘被分成了两张图，一个储存的是 RGB 通道的信息，另一个储存的是 Alpha 通道的信息（实际还",
+        }
+      ]
     };
   },
   computed: {
     componentDiv() {
-      return { template: this.shtml };
+      return { template: this.shtml};
     }
+  },
+  methods: {
+    isLeft(index) {
+      return { 'post-list-thumb-left' : ((index > 0) && (index % 2 === 0))}
+    },
   }
 };
 </script>

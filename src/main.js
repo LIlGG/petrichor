@@ -9,17 +9,25 @@ import Tips from '@/plugins/Tips';
 import '@/styles/style.less'
 import '@/styles/index.less'
 
+import * as filters from './filters' // 全局过滤器
 
 import './permission'
 Vue.config.productionTip = false
 Vue.use(GL_Component)
 Vue.use(Tips);
 
+// 注册全局过滤器
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
+
 new Vue({
   router,
   store,
   render: h => h(App)
 }).$mount('#app')
+
+
 
 
 //当路由进入前
