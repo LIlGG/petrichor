@@ -81,7 +81,7 @@ export const asyncRoutes = [
         ]
     },
     {
-        path: '/*',
+        path: '/list',
         component: () => import('@/page/page'),
         name: 'list',
         meta: {

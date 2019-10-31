@@ -2,13 +2,15 @@ import { asyncRoutes, constantRoutes } from '@/router';
 
 const state = {
     routes: [],
-    addRoutes: []
+    addRoutes: [],
+    isRouter: false
 }
 
 const mutations = {
     SET_ROUTES: (state, routes) => {
         state.addRoutes = routes
         state.routes = constantRoutes.concat(routes)
+        state.isRouter = true
     }
 }
 

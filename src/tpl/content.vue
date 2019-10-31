@@ -1,7 +1,7 @@
 <template>
     <article class="post-list-thumb">
         <div class="post-thumb">
-            <a :href="thumb.link">
+            <a :href="thumb.link" target="_blank">
                 <img class="lazyload" :src="thumbImg">
             </a>
         </div>
@@ -15,7 +15,7 @@
                         <i class="iconfont hotpost icon-hot"></i>
                     </template>
                 </div>
-                <a :href="thumb.link" class="post-title">
+                <a :href="thumb.link" class="post-title" target="_blank">
                     <h3>{{thumb.title}}</h3>
                 </a>
                 <div class="post-meta">

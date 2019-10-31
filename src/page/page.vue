@@ -60,21 +60,21 @@ export default {
         title: " START:DASH!!",
         featureList: [
           {
-            link: "/theme-sakura/",
+            link: "/theme-sakura",
             img:
               "https://cdn.jsdelivr.net/gh/moezx/cdn@3.3.2/img/other/sakura.md.png",
             title: "Sakura",
             description: "本站 WordPress 主题"
           },
           {
-            link: "/theme-sakura/",
+            link: "/theme-sakura",
             img:
               "https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.6/img/other/th%20(3).jpg",
             title: "Pixiv",
             description: "P 站的正确打开方式"
           },
           {
-            link: "/theme-sakura/",
+            link: "/theme-sakura",
             img: "https://view.moezx.cc/images/2019/06/11/74751807_angel.jpg",
             title: "明日方舟",
             description: "游戏主界面 H5 复刻"
@@ -83,7 +83,7 @@ export default {
       },
       thumbList: [
         {
-          link: "#",
+          link: "/2019/06/04/pil-merge-of-two-images-with-alpha-channels",
           img: "https://static.2heng.xin/wp-content/uploads//2019/06/74857125_p0.png",
           time: "2019-10-30 12:00:00",
           isSticky: true,

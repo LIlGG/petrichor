@@ -9,7 +9,8 @@ const getters = {
     emailName: state => state.user.emailName,
     scrollTopDuration: state =>  state.setting.scrollTopDuration,
     theme: state => state.setting.theme,
-    routes: state => state.router.routes
+    routes: state => state.router.routes,
+    isRouter: state => state.router.isRouter
 }
 
 export default getters;

@@ -11,7 +11,7 @@
             :style="featureStyle(index)"
         >
             <div class="the-feature square from_left_and_right">
-                <a :href="item.link" target="_blank">
+                <router-link :to="item.link">
                     <div class="img">
                         <img :src="item.img">
                     </div>
@@ -19,7 +19,7 @@
                         <h3>{{item.title}}</h3>
                         <p>{{item.description}}</p>
                     </div>
-                </a>
+                </router-link>
             </div>
         </div>
     </div>
