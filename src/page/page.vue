@@ -15,8 +15,15 @@
             <i class="fa fa-envira" aria-hidden="true"></i>
             Discovery
           </h1>
-          <con v-for="(item, index) in thumbList" :thumb="item" :key="index" :class="isLeft(index)"/>
+          <con
+            v-for="(item, index) in thumbList"
+            :thumb="item"
+            :key="index"
+            :class="isLeft(index)"
+          />
         </main>
+        <!-- 分页组件 -->
+        <pager :curPage="curPage" :total="total" @setPage="gotoPage" ref="pager"/>
       </div>
     </div>
     <!-- <div> -->
@@ -39,11 +46,15 @@
 
 <script>
 import Feature from "@/views/Feature";
-import Con from '@/tpl/content'
+import Con from "@/tpl/content";
+import Pager from "components/Pager";
 export default {
   components: {
     Feature,
-    Con
+    Con,
+    Pager
+  },
+  mounted() {
   },
   data() {
     return {
@@ -84,7 +95,8 @@ export default {
       thumbList: [
         {
           link: "/2019/06/04/pil-merge-of-two-images-with-alpha-channels",
-          img: "https://static.2heng.xin/wp-content/uploads//2019/06/74857125_p0.png",
+          img:
+            "https://static.2heng.xin/wp-content/uploads//2019/06/74857125_p0.png",
           time: "2019-10-30 12:00:00",
           isSticky: true,
           title: "PIL 合并 RGB 通道图与 Alpha 通道图",
@@ -92,20 +104,31 @@ export default {
           comments: 26,
           categoryLink: "#",
           categoryName: "无",
-          theExcerpt: "明日方舟拆包以后发现立绘被分成了两张图，一个储存的是 RGB 通道的信息，另一个储存的是 Alpha 通道的信息（实际还",
+          theExcerpt:
+            "明日方舟拆包以后发现立绘被分成了两张图，一个储存的是 RGB 通道的信息，另一个储存的是 Alpha 通道的信息（实际还"
         }
-      ]
+      ],
+      curPage: 1,
+      total: 3,
+      pageSize: 10
     };
   },
   computed: {
     componentDiv() {
-      return { template: this.shtml};
+      return { template: this.shtml };
     }
   },
   methods: {
     isLeft(index) {
-      return { 'post-list-thumb-left' : ((index > 0) && (index % 2 === 0))}
+      return { "post-list-thumb-left": index > 0 && index % 2 === 0 };
     },
+    gotoPage() {
+      // 模拟请求
+      setTimeout(() => {
+        this.curPage++;
+      }, 3000);
+      
+    }
   }
 };
 </script>
@@ -120,7 +143,8 @@ export default {
   margin-left: auto;
   margin-right: auto;
   background-color: rgba(255, 255, 255, 0.8);
-  &::before, &::after{
+  &::before,
+  &::after {
     content: "";
     display: table;
     table-layout: fixed;
