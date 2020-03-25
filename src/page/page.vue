@@ -2,134 +2,91 @@
 博客内容页面主题（必须具有高复用性,因此大部分内容选择后台获取。之后缓存）
 为了方便起见，我先自己预定义一个最基本的模板，剩余的模板均使用后台进行读取
 当前界面只实现最基本的功能，如翻页，展示等，具体功能视后台html而定
+【后续考虑之后，决定对于每个单独的页面设置一个不同的page，这样比较方便】
+【大部分界面都会经过page.vue界面,当前页面只控制大致的样式以及获取后台内容并进行内容分发（分隔不同的内容，
+  例如背景图数据，主内容数据，评论数据的分发）】
  -->
 <template>
   <div id="page" class="site wrapper">
-    <div class="blank" style="padding-top: 0px;"></div>
-    <div id="content" class="site-content">
-      <feature :feature="feature"/>
-      <div id="primary" class="content-area">
-        <!-- #main -->
-        <main id="main" class="site-main" role="main">
-          <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
-            <i class="fa fa-envira" aria-hidden="true"></i>
-            Discovery
-          </h1>
-          <con
-            v-for="(item, index) in thumbList"
-            :thumb="item"
-            :key="index"
-            :class="isLeft(index)"
-          />
-        </main>
-        <!-- 分页组件 -->
-        <pager :curPage="curPage" :total="total" @setPage="gotoPage" ref="pager"/>
-      </div>
-    </div>
-    <!-- <div> -->
-    <!--<component :is="componentDiv"></component> -->
-    <!-- html模板可以从后台传过来，也可以预先写好模板, 目前来说最好是先写一个本地模板，之后全部采用后端读取 -->
-    <!-- </div> -->
-    <!-- <div class="pattern-center">
-            <div class="pattern-attachment-img">
-               
-            </div>
-            <header class="pattern-header">
-               
-            </header>
-        </div>
-        <div id="content" class="site-content">
-            
-    </div>-->
+    <!-- 
+      最外层为统一的界面，所有的界面大致上都需要经过此页面（少例可以后续增加）
+      page内需要有背景图，主内容，评论等，除了主内容，背景图和评论都可以没有
+    -->
+    <!-- page背景 -->
+    <page-background v-if="content.isBack"/>
+    <!-- 主内容 -->
+    <page-content :pageData="content"/>
+    <!-- 评论 -->
+    <page-section v-if="content.isSection"/>
   </div>
 </template>
 
 <script>
-import Feature from "@/views/Feature";
-import Con from "@/tpl/content";
-import Pager from "components/Pager";
+import PageBackground from "@/views/PageBackground";
+import PageContent from "@/views/PageContent";
+import PageSection from "@/views/PageSection";
 export default {
   components: {
-    Feature,
-    Con,
-    Pager
-  },
-  mounted() {
+    PageBackground,
+    PageContent,
+    PageSection
   },
   data() {
     return {
-      shtml: `<div><aplayer :musics="{ server: 'netease', type: 'playlist',id: 2345868969 }" :option="{fixed: false}"></aplayer><aplayer :musics="{ server: 'netease', type: 'playlist',id: 2345868969 }" :option="{fixed: false}"></aplayer></div>`,
-      musicQuery: {
-        server: "netease",
-        type: "playlist",
-        id: 2345868969
-      },
-      musicOption: {
-        fixed: false
-      },
-      feature: {
-        title: " START:DASH!!",
-        featureList: [
-          {
-            link: "/theme-sakura",
-            img:
-              "https://cdn.jsdelivr.net/gh/moezx/cdn@3.3.2/img/other/sakura.md.png",
-            title: "Sakura",
-            description: "本站 WordPress 主题"
+      content: {
+        isBack: false,
+        isSection: false,
+        contentPage: "homeContent",
+        content: {
+          feature: {
+            title: " START:DASH!!",
+            featureList: [
+              {
+                link: "/theme-sakura",
+                img:
+                  "https://cdn.jsdelivr.net/gh/moezx/cdn@3.3.2/img/other/sakura.md.png",
+                title: "Sakura",
+                description: "本站 WordPress 主题"
+              },
+              {
+                link: "/theme-sakura",
+                img:
+                  "https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.6/img/other/th%20(3).jpg",
+                title: "Pixiv",
+                description: "P 站的正确打开方式"
+              },
+              {
+                link: "/theme-sakura",
+                img:
+                  "https://view.moezx.cc/images/2019/06/11/74751807_angel.jpg",
+                title: "明日方舟",
+                description: "游戏主界面 H5 复刻"
+              }
+            ]
           },
-          {
-            link: "/theme-sakura",
-            img:
-              "https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.6/img/other/th%20(3).jpg",
-            title: "Pixiv",
-            description: "P 站的正确打开方式"
-          },
-          {
-            link: "/theme-sakura",
-            img: "https://view.moezx.cc/images/2019/06/11/74751807_angel.jpg",
-            title: "明日方舟",
-            description: "游戏主界面 H5 复刻"
-          }
-        ]
-      },
-      thumbList: [
-        {
-          link: "/2019/06/04/pil-merge-of-two-images-with-alpha-channels",
-          img:
-            "https://static.2heng.xin/wp-content/uploads//2019/06/74857125_p0.png",
-          time: "2019-10-30 12:00:00",
-          isSticky: true,
-          title: "PIL 合并 RGB 通道图与 Alpha 通道图",
-          views: 7153,
-          comments: 26,
-          categoryLink: "#",
-          categoryName: "无",
-          theExcerpt:
-            "明日方舟拆包以后发现立绘被分成了两张图，一个储存的是 RGB 通道的信息，另一个储存的是 Alpha 通道的信息（实际还"
+          thumbList: [
+            {
+              link: "/2019/06/04/pil-merge-of-two-images-with-alpha-channels",
+              img:
+                "https://static.2heng.xin/wp-content/uploads//2019/06/74857125_p0.png",
+              time: "2019-10-30 12:00:00",
+              isSticky: true,
+              title: "PIL 合并 RGB 通道图与 Alpha 通道图",
+              views: 7153,
+              comments: 26,
+              categoryLink: "#",
+              categoryName: "无",
+              theExcerpt:
+                "明日方舟拆包以后发现立绘被分成了两张图，一个储存的是 RGB 通道的信息，另一个储存的是 Alpha 通道的信息（实际还"
+            }
+          ],
+          curPage: 1,
+          total: 3,
+          pageSize: 10
         }
-      ],
-      curPage: 1,
-      total: 3,
-      pageSize: 10
+      }
     };
   },
-  computed: {
-    componentDiv() {
-      return { template: this.shtml };
-    }
-  },
-  methods: {
-    isLeft(index) {
-      return { "post-list-thumb-left": index > 0 && index % 2 === 0 };
-    },
-    gotoPage() {
-      // 模拟请求
-      setTimeout(() => {
-        this.curPage++;
-      }, 3000);
-      
-    }
-  }
 };
 </script>
 <style lang="less">
@@ -150,8 +107,5 @@ export default {
     table-layout: fixed;
     clear: both;
   }
-}
-#content {
-  animation: main 1s;
 }
 </style>

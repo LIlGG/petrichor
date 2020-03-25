@@ -2,7 +2,7 @@ import Cookies from 'js-cookie'
 
 const state = {
     scrollTopDuration: 500,
-    theme: Cookies.get('theme') || {},
+    theme: Cookies.get('petrichorTheme') || {},
 }
 
 const mutations = {
@@ -11,7 +11,7 @@ const mutations = {
     },
     SET_THEME: (state, theme) => {
         state.theme = theme
-        Cookies.set('theme', theme)
+        Cookies.set('petrichorTheme', theme)
     }
 }
 

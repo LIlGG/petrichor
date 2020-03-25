@@ -1,0 +1,1 @@
+export {default as HomeContent} from './Home/index.vue'
