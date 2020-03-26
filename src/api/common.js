@@ -1,12 +1,12 @@
 import request from '@/utils/request'
 /**
- * 获取文章具体内容或文章列表
+ * 转发某个地址的请求
  * @param {Object} query 
  */
-export function article(query){
+export function api(url, query, method = 'post'){
     return request({
-        url: '/article/api',
-        method: 'post',
+        url: url,
+        method: method,
         params: JSON.stringify(query)
     })
 }

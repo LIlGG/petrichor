@@ -20,15 +20,6 @@ module.exports = {
         overlay: {
           warnings: false,
           errors: true
-        },
-        proxy: {
-          [process.env.VUE_APP_BASE_API]: {
-            target: `http://127.0.0.1:${port}/mock`,
-            changeOrigin: true,
-            pathRewrite: {
-              ['^' + process.env.VUE_APP_BASE_API]: ''
-            }
-          }
         }
       },
       configureWebpack: {

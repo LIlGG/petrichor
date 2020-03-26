@@ -1,8 +1,7 @@
 <template>
   <section id="main-container">
     <!-- 头部(home) -->
-    <homeheader :banner="banner" class="headertop filter-dot" style="height: auto"></homeheader>
-    <!-- 头部（非Home) -->
+    <homeheader v-if="isBack" :banner="banner" class="headertop filter-dot" style="height: auto"></homeheader>
     <!-- 页面主体 -->
     <slot></slot>
     <!-- 页脚 -->
@@ -21,6 +20,11 @@ export default {
     return {
       banner: ["1", "2"]
     };
+  },
+  computed: {
+    isBack: function() {
+      return this.$route.meta.showBack;
+    }
   }
 };
 </script>

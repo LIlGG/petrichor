@@ -7,13 +7,13 @@
   例如背景图数据，主内容数据，评论数据的分发）】
  -->
 <template>
-  <div id="page" class="site wrapper">
+  <div id="page" class="site wrapper" v-if="content">
     <!-- 
       最外层为统一的界面，所有的界面大致上都需要经过此页面（少例可以后续增加）
       page内需要有背景图，主内容，评论等，除了主内容，背景图和评论都可以没有
     -->
     <!-- page背景 -->
-    <page-background v-if="content.isBack"/>
+    <page-background  v-if="content.isBack"/>
     <!-- 主内容 -->
     <page-content :pageData="content"/>
     <!-- 评论 -->
@@ -25,68 +25,37 @@
 import PageBackground from "@/views/PageBackground";
 import PageContent from "@/views/PageContent";
 import PageSection from "@/views/PageSection";
+import { article as articleApi } from "@/api/article";
+import { api } from "@/api/common";
 export default {
+  name: "Page",
   components: {
     PageBackground,
     PageContent,
     PageSection
   },
+  beforeRouteEnter(to, from, next) {
+    // 跳转页面模式
+    api(to.path).then(res => {
+      if(res.code !== 0) {  
+        next(res.data.redirect ? res.data.redirect : '/404');
+      }
+      to.meta.title = res.data.title ? res.data.title : "";
+      next(vm => vm.setData(res));
+    }).catch(error => {
+      next("/404");
+    });
+  },
   data() {
     return {
-      content: {
-        isBack: false,
-        isSection: false,
-        contentPage: "homeContent",
-        content: {
-          feature: {
-            title: " START:DASH!!",
-            featureList: [
-              {
-                link: "/theme-sakura",
-                img:
-                  "https://cdn.jsdelivr.net/gh/moezx/cdn@3.3.2/img/other/sakura.md.png",
-                title: "Sakura",
-                description: "本站 WordPress 主题"
-              },
-              {
-                link: "/theme-sakura",
-                img:
-                  "https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.6/img/other/th%20(3).jpg",
-                title: "Pixiv",
-                description: "P 站的正确打开方式"
-              },
-              {
-                link: "/theme-sakura",
-                img:
-                  "https://view.moezx.cc/images/2019/06/11/74751807_angel.jpg",
-                title: "明日方舟",
-                description: "游戏主界面 H5 复刻"
-              }
-            ]
-          },
-          thumbList: [
-            {
-              link: "/2019/06/04/pil-merge-of-two-images-with-alpha-channels",
-              img:
-                "https://static.2heng.xin/wp-content/uploads//2019/06/74857125_p0.png",
-              time: "2019-10-30 12:00:00",
-              isSticky: true,
-              title: "PIL 合并 RGB 通道图与 Alpha 通道图",
-              views: 7153,
-              comments: 26,
-              categoryLink: "#",
-              categoryName: "无",
-              theExcerpt:
-                "明日方舟拆包以后发现立绘被分成了两张图，一个储存的是 RGB 通道的信息，另一个储存的是 Alpha 通道的信息（实际还"
-            }
-          ],
-          curPage: 1,
-          total: 3,
-          pageSize: 10
-        }
-      }
+      content: ""
     };
   },
+  methods: {
+    setData(res) {
+      this.content = res.data;
+    }
+  }
 };
 </script>
 <style lang="less">

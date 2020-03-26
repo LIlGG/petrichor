@@ -13,12 +13,23 @@ export const constantRoutes = [
             title: ' 首页',
             span: 'faa-parent animated-hover',
             icon: 'fa fa-fort-awesome faa-horizontal',
+            showBack: true,
         },
     },
     {
         path: '/404',
-        hidden: true
-    }
+        component: () => import('@/page/404'),
+        hidden: true,
+        meta: {
+            title: '404',
+        }
+    },
+    { 
+        path: '/:year(\\d+)/:month(\\d+)?/:day(\\d+)?/:article?',
+        hidden: true,
+        component: () => import('@/page/page')
+    },
+    { path: '*', redirect: '/404'}
 ]
 
 // 异步加载的路由表
@@ -119,8 +130,7 @@ export const asyncRoutes = [
                 },
             }
         ]
-    },
-    { path: '*', redirect: '/404', hidden: true }
+    }
 ]
 
 const createRouter = () => new Router({
