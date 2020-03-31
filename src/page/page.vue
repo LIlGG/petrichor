@@ -12,8 +12,9 @@
       最外层为统一的界面，所有的界面大致上都需要经过此页面（少例可以后续增加）
       page内需要有背景图，主内容，评论等，除了主内容，背景图和评论都可以没有
     -->
+    <div class="pattern-center-blank"></div>
     <!-- page背景 -->
-    <page-background  v-if="content.isBack"/>
+    <page-background v-if="content.isBack"/>
     <!-- 主内容 -->
     <page-content :pageData="content"/>
     <!-- 评论 -->
@@ -76,5 +77,9 @@ export default {
     table-layout: fixed;
     clear: both;
   }
+}
+.pattern-center-blank {
+    padding-top: 75px;
+    background-color: #fff;
 }
 </style>

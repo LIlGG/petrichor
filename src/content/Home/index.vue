@@ -2,14 +2,14 @@
 	<div>
 		<!-- 主内容前端装饰 -->
 		<feature :feature="feature"/>
-		<div id="primary" class="content-area">
+		<div class="content-area">
 			<!-- #main -->
 			<main id="main" class="site-main" role="main">
 				<h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
 					<i class="fa fa-envira" aria-hidden="true"></i>
 					Discovery
 				</h1>
-				<con v-for="(item, index) in thumbList" :thumb="item" :key="index" :class="isLeft(index)"/>
+				<con v-for="(item, index) in thumb" :thumb="item" :key="index" :class="isLeft(index)"/>
 			</main>
 			<!-- 分页组件 -->
 			<pager :curPage="curPage" :total="total" @setPage="gotoPage" ref="pager"/>
@@ -38,7 +38,7 @@ export default {
       return this.conData.feature;
     },
     thumbList: function() {
-      return this.conData.thumbList;
+      return this.conData.thumb;
     },
     curPage: function() {
       return this.conData.curPage;

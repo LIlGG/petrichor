@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import { HomeContent } from "@/content";
 export default {
   name: "PageContent",
   components: {
-    HomeContent
+    HomeContent: () => import("@/content/Home"),
+    ArticleContent: () => import("@/content/Article")
   },
   props: {
     pageData: {
