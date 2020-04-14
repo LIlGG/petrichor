@@ -38,10 +38,10 @@ export default {
   beforeRouteEnter(to, from, next) {
     // 跳转页面模式
     api(to.path).then(res => {
+      debugger
       if(res.code !== 0) {  
         next(res.data.redirect ? res.data.redirect : '/404');
       }
-      to.meta.title = res.data.title ? res.data.title : "";
       next(vm => vm.setData(res));
     }).catch(error => {
       next("/404");

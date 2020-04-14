@@ -28,8 +28,7 @@ export const constantRoutes = [
         path: '/:year(\\d+)/:month(\\d+)?/:day(\\d+)?/:article?',
         hidden: true,
         component: () => import('@/page/page')
-    },
-    { path: '*', redirect: '/404'}
+    }
 ]
 
 // 异步加载的路由表

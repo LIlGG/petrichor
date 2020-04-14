@@ -45,7 +45,7 @@ export default {
       if (video.paused) {
         //已经暂停则开始播放
         this.playerUrl = 
-          "https://cdn.lixingyong.com/video/The Pet Girl of Sakurasou.mp4";
+          "http://api.lixingyong.com/bilibili?type=url&id=bv1be411x7UL";
         this.$store.dispatch("app/setBgVideoPlay", true);
         this.playcallback(video);
         if (!this.isVideo) {

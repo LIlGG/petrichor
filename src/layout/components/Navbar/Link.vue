@@ -9,6 +9,7 @@
 import { isExternal } from '@/utils/validate'
 
 export default {
+  name: "Link",
   props: {
     to: {
       type: String,
